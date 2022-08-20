@@ -16,7 +16,7 @@ public class volunteerForDogUI {
 	VolunteerForDogDAO volunteerForDogDAO = new VolunteerForDogDAO();
 
 	public volunteerForDogUI() {
-
+		String test;
 		String choice;
 
 		while(true) {
@@ -24,67 +24,67 @@ public class volunteerForDogUI {
 			choice = keyboard.next();
 
 			switch(choice) {
-			case "1" : input(); break; 						//È¸¿ø Á¤º¸ µî·Ï
-			case "2" : searchShelter(); break;				//º¸È£¼Ò Á¶È¸
-			case "3" : volunteerRequest(); break;			//ºÀ»ç ½ÅÃ»
-			case "4" : donationRequest(); break;			//ÈÄ¿ø ½ÅÃ»
-			case "5" : selectOne(); break;					//È¸¿ø Á¤º¸ Á¶È¸
-			case "6" : update(); break;						//È¸¿ø Á¤º¸ ¼öÁ¤
-			case "7" : delete(); break;						//È¸¿ø Á¤º¸ »èÁ¦
-			case "0" : System.out.println("** ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù. ** ");
+			case "1" : input(); break; 						//È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+			case "2" : searchShelter(); break;				//ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½È¸
+			case "3" : volunteerRequest(); break;			//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+			case "4" : donationRequest(); break;			//ï¿½Ä¿ï¿½ ï¿½ï¿½Ã»
+			case "5" : selectOne(); break;					//È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+			case "6" : update(); break;						//È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			case "7" : delete(); break;						//È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			case "0" : System.out.println("** ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½. ** ");
 			return;
-			default : System.out.println("Error> ¸Þ´º¸¦ ´Ù½Ã ¼±ÅÃÇØÁÖ¼¼¿ä!");
+			default : System.out.println("Error> ï¿½Þ´ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½!");
 			}
 		}
 	}
 
-	// 1. È¸¿ø Á¤º¸ µî·Ï
-	private void input() {	// ¼ºº° ¿ÀÀÔ·Â½Ã ¸ÞÀÎ ¸Þ´º°¡ ¾Æ´Ñ, ¼ºº° ÀÔ·Â¶óÀÎÀ¸·Î ¸®ÅÏÇÏ±â
+	// 1. È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	private void input() {	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô·Â½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·Â¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 		String usrid, usrname, usrgender, usraddress, usrphone;
 		int usrage;
 		int shelternum;
 
-		System.out.println("\n      [ È¸¿ø °¡ÀÔ  ]");
+		System.out.println("\n      [ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ]");
 		
-		System.out.println("\n      [ º¸È£¼Ò ¸ñ·Ï ]");  
+		System.out.println("\n      [ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ ]");  
 		selectSheltermenu();
-		System.out.print(" °¡ÀÔÀ» ¿øÇÏ½Ã´Â º¸È£¼Ò ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+		System.out.print(" ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï½Ã´ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 		shelternum = keyboard.nextInt();
 
 		if(!(shelternum ==1 || shelternum ==2 || shelternum ==3 || shelternum ==4 || shelternum ==5)) {
-			System.out.println("°æ°í) º¸È£¼Ò ¹øÈ£¸¦ Á¤È®ÇÏ°Ô ÀÔ·ÂÇØÁÖ¼¼¿ä!");
+			System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½È®ï¿½Ï°ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½!");
 			return;
 		}
 
 		keyboard.nextLine();
 
-		System.out.println("°æ°í) ¾ÆÀÌµð´Â ÃßÈÄ º¯°æÀÌ ºÒ°¡´ÉÇÕ´Ï´Ù. ½ÅÁßÈ÷ ±âÀÔÇØÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.");
-		System.out.print("> ¾ÆÀÌµð : ");
+		System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö½Ã±ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½.");
+		System.out.print("> ï¿½ï¿½ï¿½Ìµï¿½ : ");
 		usrid = keyboard.nextLine();
 
 		if(usrid.length() == 0) {
-			System.out.println("** ¾ÆÀÌµð¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");
+			System.out.println("** ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½");
 			return;
 		}
 
-		System.out.print("> ÀÌ¸§ : ");
+		System.out.print("> ï¿½Ì¸ï¿½ : ");
 		usrname = keyboard.nextLine();
 
 		if(usrname.length() == 0) {
-			System.out.println("** ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä");
+			System.out.println("** ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½");
 			return;
 		}
-		System.out.print("> ³ªÀÌ : ");
+		System.out.print("> ï¿½ï¿½ï¿½ï¿½ : ");
 		usrage = keyboard.nextInt();
 
 		if(usrage == 0) { 
-			System.out.println("** ³ªÀÌ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");
+			System.out.println("** ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½");
 			return;
 		}
 
 		keyboard.nextLine();
 
-		System.out.print("> ¼ºº° (F/M): "); 
+		System.out.print("> ï¿½ï¿½ï¿½ï¿½ (F/M): "); 
 		usrgender = keyboard.nextLine();
 		switch (usrgender) {
 		case "F":
@@ -94,23 +94,23 @@ public class volunteerForDogUI {
 			usrgender = "M";
 			break;
 		default :
-			System.out.println("** ¿©¼ºÀÌ¸é F, ³²¼ºÀÌ¸é MÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+			System.out.println("** ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ F, ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ Mï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
 			return;
 		} 
 
-		System.out.print("> ÁÖ¼Ò : ");
+		System.out.print("> ï¿½Ö¼ï¿½ : ");
 		usraddress = keyboard.nextLine();
 
 		if(usraddress.length() == 0) {
-			System.out.println("** ÁÖ¼Ò¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");
+			System.out.println("** ï¿½Ö¼Ò¸ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½");
 			return;
 		}
 
-		System.out.print("> ¿¬¶ôÃ³ : ");
+		System.out.print("> ï¿½ï¿½ï¿½ï¿½Ã³ : ");
 		usrphone = keyboard.nextLine();
 
 		if(usrphone.length() == 0) {
-			System.out.println("** ¿¬¶ôÃ³¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");
+			System.out.println("** ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½");
 			return;
 		}
 
@@ -127,30 +127,30 @@ public class volunteerForDogUI {
 
 		if(result == 1) {
 			System.out.println("------------------------------------------------------------");
-			System.out.println("È¸¿ø °¡ÀÔÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+			System.out.println("È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 			System.out.println("------------------------------------------------------------");
 		} else {
 			System.out.println("------------------------------------------------------------");
-			System.out.println("°æ°í) ÇöÀç ½Ã½ºÅÛ Á¡°ËÁßÀÔ´Ï´Ù. °ü¸®ÀÚ¿¡°Ô ¹®ÀÇÇØÁÖ¼¼¿ä.");
+			System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
 			System.out.println("------------------------------------------------------------");
 			return;
 		}
 	}
 
-	// 2. º¸È£¼Ò Á¶È¸
+	// 2. ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½È¸
 	private void searchShelter() {
 		int shelternum;
 		String shelternum2;
 		
-		System.out.println("\n      [ º¸È£¼Ò ¸ñ·Ï ]");  
+		System.out.println("\n      [ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ ]");  
 		selectSheltermenu();
-		System.out.print("> Á¤º¸¸¦ Á¶È¸ÇÏ½Ç º¸È£¼Ò ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+		System.out.print("> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Ï½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 
 		try {
 			shelternum = keyboard.nextInt();
 			keyboard.nextLine();
 		} catch (Exception e) {
-			System.out.println("°æ°í) ¼ýÀÚ ÀÌ¿ÜÀÇ ¹®ÀÚ ÀÔ·ÂÀº ºÒ°¡´ÉÇÕ´Ï´Ù!");
+			System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½!");
 			keyboard.nextLine();
 			return;
 		}
@@ -158,10 +158,10 @@ public class volunteerForDogUI {
 		ShelterVO shelter = volunteerForDogDAO.searchShelter(shelternum);
 
 		System.out.println("------------------------------------------------------------");
-		System.out.println("º¸È£¼Ò¸í : " + shelter.getSheltername());
-		System.out.println("º¸È£¼Ò µî·Ï¹øÈ£ : " + shelter.getShelternum() + "¹ø");
-		System.out.println("ÁÖ¼Ò : " + shelter.getShelteraddress());
-		System.out.println("Ã¥ÀÓÀÚ : " + shelter.getShelteradmin());
+		System.out.println("ï¿½ï¿½È£ï¿½Ò¸ï¿½ : " + shelter.getSheltername());
+		System.out.println("ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½Ï¹ï¿½È£ : " + shelter.getShelternum() + "ï¿½ï¿½");
+		System.out.println("ï¿½Ö¼ï¿½ : " + shelter.getShelteraddress());
+		System.out.println("Ã¥ï¿½ï¿½ï¿½ï¿½ : " + shelter.getShelteradmin());
 		System.out.println("------------------------------------------------------------");
 
 		while(true) {
@@ -170,20 +170,20 @@ public class volunteerForDogUI {
 
 			switch(shelternum2) {
 			case "1" : 
-				System.out.println("¹øÈ£	 	ÀÌ¸§		 ³ªÀÌ	 		°ßÁ¾	 	¼ºº°		 	Áúº´		 	ÀÔ¼ÒÀÏ		 	ÈÄ¿øÀÚ");
+				System.out.println("ï¿½ï¿½È£	 	ï¿½Ì¸ï¿½		 ï¿½ï¿½ï¿½ï¿½	 		ï¿½ï¿½ï¿½ï¿½	 	ï¿½ï¿½ï¿½ï¿½		 	ï¿½ï¿½ï¿½ï¿½		 	ï¿½Ô¼ï¿½ï¿½ï¿½		 	ï¿½Ä¿ï¿½ï¿½ï¿½");
 				List<DogVO> dogList = volunteerForDogDAO.searchDog(shelternum);
 				dogList.forEach(d -> System.out.println(d));
 				break;
-			case "2" : System.out.println("»ó¼¼ ÁÖ¼Ò : " + shelter.getShelterdetailaddress()); break;
-			case "3" : System.out.println("ÈÄ¿ø °èÁÂ : " + shelter.getShelteraccount()); break;
-			case "0" : System.out.println("** ¸Þ´º È­¸éÀ¸·Î µ¹¾Æ°©´Ï´Ù.");
+			case "2" : System.out.println("ï¿½ï¿½ ï¿½Ö¼ï¿½ : " + shelter.getShelterdetailaddress()); break;
+			case "3" : System.out.println("ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½ : " + shelter.getShelteraccount()); break;
+			case "0" : System.out.println("** ï¿½Þ´ï¿½ È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½Ï´ï¿½.");
 			return;
-			default : System.out.println("°æ°í) Ç×¸ñÀÇ ¹øÈ£¸¦ ¿Ã¹Ù¸£°Ô ÀÔ·ÂÇØÁÖ¼¼¿ä!");
+			default : System.out.println("ï¿½ï¿½ï¿½) ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ã¹Ù¸ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½!");
 			}
 		}
 	}
 
-	// 3. ºÀ»ç ½ÅÃ»
+	// 3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 	private void volunteerRequest() {
 		List<UsrVO> list = volunteerForDogDAO.findAll();
 		int age = 0;
@@ -192,8 +192,8 @@ public class volunteerForDogUI {
 		String parentsname, parentsaddress, parentsphone,
 		volunteerdate, usrid, searchWord = null, searchArea = null;
 
-		System.out.println("\n      [ ºÀ»ç ½ÅÃ» ]");
-		System.out.println("°øÁö - ÇöÀç °ÅÁÖÇÏ°í °è½Å °÷¿¡¼­ °¡Àå °¡±î¿î º¸È£¼Ò¸¦ ¾Ë·Áµå¸®´Â ±â´ÉÀÌ Ãß°¡µÇ¾ú½À´Ï´Ù!");
+		System.out.println("\n      [ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ]");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½Ò¸ï¿½ ï¿½Ë·ï¿½ï¿½å¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½!");
 
 		volunteermenu();
 		choice = keyboard.nextInt();
@@ -201,29 +201,29 @@ public class volunteerForDogUI {
 		keyboard.nextLine();
 
 		if(choice == 1) {
-			System.out.println("\n      [ º¸È£¼Ò ¸ñ·Ï ]");  
+			System.out.println("\n      [ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ ]");  
 			selectSheltermenu();
-			System.out.print("> ºÀ»ç ½ÅÃ» ÇÏ½Ç º¸È£¼Ò¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä : ");
+			System.out.print("> ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Ï½ï¿½ ï¿½ï¿½È£ï¿½Ò¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 			shelternum = keyboard.nextInt();
 			keyboard.nextLine();
 
-			System.out.print("> ºÀ»ç¸¦ Èñ¸ÁÇÏ½Ã´Â ³¯Â¥¸¦ 'YYYY/MM/DD' Çü½ÄÀ¸·Î ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+			System.out.print("> ï¿½ï¿½ï¿½ç¸¦ ï¿½ï¿½ï¿½ï¿½Ï½Ã´ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ 'YYYY/MM/DD' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 			volunteerdate = keyboard.nextLine();
 
-			System.out.print("> È¸¿øÀ¸·Î µî·ÏµÈ ¾ÆÀÌµð¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+			System.out.print("> È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 			usrid = keyboard.nextLine();
 
 			if(usrid.equals("")) {
-				System.out.println("°æ°í) ¾ÆÀÌµð´Â ÇÊ¼ö ÀÔ·Â »çÇ×ÀÔ´Ï´Ù.");
+				System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 				return;
 			}
 
 			if(!(usrid.equals(usrid))) {
-				System.out.println("°æ°í) ÀÔ·ÂÇÏ½Å ¾ÆÀÌµð°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+				System.out.println("ï¿½ï¿½ï¿½) ï¿½Ô·ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.");
 				return;
 			}
 
-			/*³ªÀÌ¸¦ ÆÇ´ÜÇÏ´Â ºÎºÐ*/
+			/*ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Ç´ï¿½ï¿½Ï´ï¿½ ï¿½Îºï¿½*/
 			for(int i=0; i < list.size(); ++i) {
 				if(list.get(i).getUsrid().equals(usrid)) {
 					age = list.get(i).getUsrage();
@@ -231,38 +231,38 @@ public class volunteerForDogUI {
 			}
 
 			if(age < 20) {
-				System.out.println("°æ°í) ¹Ì¼º³âÀÚÀÇ °æ¿ì º¸È£ÀÚÀÇ µ¿ÀÇ ¹× Á¤º¸ Á¦°øÀÌ ÇÊ¿äÇÕ´Ï´Ù.");
-				System.out.print("> º¸È£ÀÚ ¼º¸í : ");
+				System.out.println("ï¿½ï¿½ï¿½) ï¿½Ì¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½Õ´Ï´ï¿½.");
+				System.out.print("> ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ");
 				parentsname = keyboard.nextLine();
 
 				if(parentsname.length() == 0) {
-					System.out.println("°æ°í) ÇÊ¼ö ÀÔ·Â »çÇ×ÀÔ´Ï´Ù.");
+					System.out.println("ï¿½ï¿½ï¿½) ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 					return;
 				}
 
-				System.out.print("> º¸È£ÀÚ ¿¬·É : ");
+				System.out.print("> ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ");
 				parentsage = keyboard.nextInt();
 
 				if(parentsage == 0) { 
-					System.out.println("°æ°í) ÇÊ¼ö ÀÔ·Â »çÇ×ÀÔ´Ï´Ù.");
+					System.out.println("ï¿½ï¿½ï¿½) ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 					return;
 				}
 
 				keyboard.nextLine();
 
-				System.out.print("> ÁÖ¼Ò : ");
+				System.out.print("> ï¿½Ö¼ï¿½ : ");
 				parentsaddress = keyboard.nextLine();
 
 				if(parentsaddress.length() == 0) {
-					System.out.println("°æ°í) ÇÊ¼ö ÀÔ·Â »çÇ×ÀÔ´Ï´Ù.");
+					System.out.println("ï¿½ï¿½ï¿½) ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 					return;
 				}
 
-				System.out.print("> ¿¬¶ôÃ³ : ");
+				System.out.print("> ï¿½ï¿½ï¿½ï¿½Ã³ : ");
 				parentsphone = keyboard.nextLine();
 
 				if(parentsphone.length() == 0) {
-					System.out.println("°æ°í) ÇÊ¼ö ÀÔ·Â »çÇ×ÀÔ´Ï´Ù.");
+					System.out.println("ï¿½ï¿½ï¿½) ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 					return;
 				}
 
@@ -276,7 +276,7 @@ public class volunteerForDogUI {
 				int result = volunteerForDogDAO.input2(uvo);
 
 
-				/* ºÀ»çÈ°µ¿ ½ÅÃ»³»¿ª ³Ö±â*/
+				/* ï¿½ï¿½ï¿½ï¿½È°ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½*/
 
 				//List<VolunteerVO> ListRequest = volunteerForDogDAO.listRequest(usrid);   	
 				VolunteerVO vvo = new VolunteerVO();
@@ -287,16 +287,16 @@ public class volunteerForDogUI {
 
 				if(result == 1 && result1 == 1) {
 					System.out.println("------------------------------------------------------------");
-					System.out.println("ºÀ»ç ½ÅÃ»ÀÌ Á¤»óÀûÀ¸·Î µî·ÏµÇ¾ú½À´Ï´Ù.");
+					System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ÏµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 					System.out.println("------------------------------------------------------------");
 				} else {
 					System.out.println("------------------------------------------------------------");
-					System.out.println("°æ°í) ÇöÀç ½Ã½ºÅÛ Á¡°ËÁßÀÔ´Ï´Ù. °ü¸®ÀÚ¿¡°Ô ¹®ÀÇÇØÁÖ¼¼¿ä.");
+					System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
 					System.out.println("------------------------------------------------------------");
 					return;
 				}
 			} else {
-				/* ¼ºÀÎÀÇ °æ¿ì */
+				/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
 				UsrVO uvo = volunteerForDogDAO.findById(usrid);
 
 				VolunteerVO vvo = new VolunteerVO();
@@ -307,11 +307,11 @@ public class volunteerForDogUI {
 
 				if(result == 1) {
 					System.out.println("------------------------------------------------------------");
-					System.out.println("ºÀ»ç ½ÅÃ»ÀÌ Á¤»óÀûÀ¸·Î µî·ÏµÇ¾ú½À´Ï´Ù.");
+					System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ÏµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 					System.out.println("------------------------------------------------------------");
 				} else {
 					System.out.println("------------------------------------------------------------");
-					System.out.println("°æ°í) ÇöÀç ½Ã½ºÅÛ Á¡°ËÁßÀÔ´Ï´Ù. °ü¸®ÀÚ¿¡°Ô ¹®ÀÇÇØÁÖ¼¼¿ä.");
+					System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
 					System.out.println("------------------------------------------------------------");
 					return;
 				}
@@ -320,7 +320,7 @@ public class volunteerForDogUI {
 
 			searchArea = "saddress";
 
-			System.out.print("> Áö¿ª ÀÔ·Â(¼­¿ï/°æ±â/ÀÎÃµ) : ");
+			System.out.print("> ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½(ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½/ï¿½ï¿½Ãµ) : ");
 			searchWord = keyboard.nextLine();
 
 			Map<String, Object> map = new HashMap<>();
@@ -332,38 +332,38 @@ public class volunteerForDogUI {
 
 			if(searchResult.size() == 0 || searchResult == null) {
 				System.out.println("------------------------------------------------------------");
-				System.out.println("** °Ë»öÇÏ½Å Áö¿ªÀ¸·Î ÇöÀç µî·ÏµÈ º¸È£¼Ò°¡ ¾ø½À´Ï´Ù.");
+				System.out.println("** ï¿½Ë»ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½È£ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 				return;
 			}
 
 			System.out.println("------------------------------------------------------------");
-			System.out.println("°Ë»öÇÏ½Å Å°¿öµå·Î ÇöÀç µî·ÏµÈ º¸È£¼Ò´Â ´ÙÀ½°ú °°½À´Ï´Ù.");
+			System.out.println("ï¿½Ë»ï¿½ï¿½Ï½ï¿½ Å°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½È£ï¿½Ò´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 			System.out.println("------------------------------------------------------------");
-			System.out.println("         º¸È£¼Ò¸í		           ÁÖ¼Ò				°ü¸®ÀÚ");
+			System.out.println("         ï¿½ï¿½È£ï¿½Ò¸ï¿½		           ï¿½Ö¼ï¿½				ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 			searchResult.forEach(r -> System.out.println(r));
-			System.out.println("\n	¡ØºÀ»ç ½ÅÃ»½Ã¿¡´Â º¸È£¼Ò¸íÀÌ ¾Æ´Ñ º¸È£¼Ò ¹øÈ£·Î ÀÔ·ÂÇØÁÖ¼¼¿ä!");
+			System.out.println("\n	ï¿½Øºï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ã¿ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½!");
 			selectSheltermenu();
-			System.out.print("> ºÀ»ç ½ÅÃ» ÇÏ½Ç º¸È£¼Ò¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä : ");
+			System.out.print("> ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Ï½ï¿½ ï¿½ï¿½È£ï¿½Ò¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 			shelternum = keyboard.nextInt();
 			keyboard.nextLine();
 			
-			System.out.print("> ºÀ»ç¸¦ Èñ¸ÁÇÏ½Ã´Â ³¯Â¥¸¦ 'YYYY/MM/DD' Çü½ÄÀ¸·Î ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+			System.out.print("> ï¿½ï¿½ï¿½ç¸¦ ï¿½ï¿½ï¿½ï¿½Ï½Ã´ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ 'YYYY/MM/DD' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 			volunteerdate = keyboard.nextLine();
 
-			System.out.print("> È¸¿øÀ¸·Î µî·ÏµÈ ¾ÆÀÌµð¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+			System.out.print("> È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 			usrid = keyboard.nextLine();
 
 			if(usrid.equals("")) {
-				System.out.println("°æ°í) ¾ÆÀÌµð´Â ÇÊ¼ö ÀÔ·Â »çÇ×ÀÔ´Ï´Ù.");
+				System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 				return;
 			}
 
 			if(!(usrid.equals(usrid))) {
-				System.out.println("°æ°í) ÀÔ·ÂÇÏ½Å ¾ÆÀÌµð°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+				System.out.println("ï¿½ï¿½ï¿½) ï¿½Ô·ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.");
 				return;
 			}
 
-			/*³ªÀÌ¸¦ ÆÇ´ÜÇÏ´Â ºÎºÐ*/
+			/*ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Ç´ï¿½ï¿½Ï´ï¿½ ï¿½Îºï¿½*/
 			for(int i=0; i < list.size(); ++i) {
 				if(list.get(i).getUsrid().equals(usrid)) {
 					age = list.get(i).getUsrage();
@@ -371,38 +371,38 @@ public class volunteerForDogUI {
 			}
 
 			if(age < 20) {
-				System.out.println("°æ°í) ¹Ì¼º³âÀÚÀÇ °æ¿ì º¸È£ÀÚÀÇ µ¿ÀÇ ¹× Á¤º¸ Á¦°øÀÌ ÇÊ¿äÇÕ´Ï´Ù.");
-				System.out.print("> º¸È£ÀÚ ¼º¸í : ");
+				System.out.println("ï¿½ï¿½ï¿½) ï¿½Ì¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½Õ´Ï´ï¿½.");
+				System.out.print("> ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ");
 				parentsname = keyboard.nextLine();
 
 				if(parentsname.length() == 0) {
-					System.out.println("°æ°í) ÇÊ¼ö ÀÔ·Â »çÇ×ÀÔ´Ï´Ù.");
+					System.out.println("ï¿½ï¿½ï¿½) ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 					return;
 				}
 
-				System.out.print("> º¸È£ÀÚ ¿¬·É : ");
+				System.out.print("> ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ");
 				parentsage = keyboard.nextInt();
 
 				if(parentsage == 0) { 
-					System.out.println("°æ°í) ÇÊ¼ö ÀÔ·Â »çÇ×ÀÔ´Ï´Ù.");
+					System.out.println("ï¿½ï¿½ï¿½) ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 					return;
 				}
 
 				keyboard.nextLine();
 
-				System.out.print("> ÁÖ¼Ò : ");
+				System.out.print("> ï¿½Ö¼ï¿½ : ");
 				parentsaddress = keyboard.nextLine();
 
 				if(parentsaddress.length() == 0) {
-					System.out.println("°æ°í) ÇÊ¼ö ÀÔ·Â »çÇ×ÀÔ´Ï´Ù.");
+					System.out.println("ï¿½ï¿½ï¿½) ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 					return;
 				}
 
-				System.out.print("> ¿¬¶ôÃ³ : ");
+				System.out.print("> ï¿½ï¿½ï¿½ï¿½Ã³ : ");
 				parentsphone = keyboard.nextLine();
 
 				if(parentsphone.length() == 0) {
-					System.out.println("°æ°í) ÇÊ¼ö ÀÔ·Â »çÇ×ÀÔ´Ï´Ù.");
+					System.out.println("ï¿½ï¿½ï¿½) ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 					return;
 				}
 
@@ -423,11 +423,11 @@ public class volunteerForDogUI {
 
 				if(result == 1 && result1 == 1) {
 					System.out.println("------------------------------------------------------------");
-					System.out.println("ºÀ»ç ½ÅÃ»ÀÌ Á¤»óÀûÀ¸·Î µî·ÏµÇ¾ú½À´Ï´Ù.");
+					System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ÏµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 					System.out.println("------------------------------------------------------------");
 				} else {
 					System.out.println("------------------------------------------------------------");
-					System.out.println("°æ°í) ÇöÀç ½Ã½ºÅÛ Á¡°ËÁßÀÔ´Ï´Ù. °ü¸®ÀÚ¿¡°Ô ¹®ÀÇÇØÁÖ¼¼¿ä.");
+					System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
 					System.out.println("------------------------------------------------------------");
 					return;
 				}
@@ -442,79 +442,79 @@ public class volunteerForDogUI {
 
 				if(result == 1) {
 					System.out.println("------------------------------------------------------------");
-					System.out.println("ºÀ»ç ½ÅÃ»ÀÌ Á¤»óÀûÀ¸·Î µî·ÏµÇ¾ú½À´Ï´Ù.");
+					System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ÏµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 					System.out.println("------------------------------------------------------------");
 				} else {
 					System.out.println("------------------------------------------------------------");
-					System.out.println("°æ°í) ÇöÀç ½Ã½ºÅÛ Á¡°ËÁßÀÔ´Ï´Ù. °ü¸®ÀÚ¿¡°Ô ¹®ÀÇÇØÁÖ¼¼¿ä.");
+					System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
 					System.out.println("------------------------------------------------------------");
 					return;
 				}
 			}
 
 		} else if(choice == 0) {
-			System.out.println("** ¸Þ´º È­¸éÀ¸·Î µ¹¾Æ°©´Ï´Ù.");
+			System.out.println("** ï¿½Þ´ï¿½ È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½Ï´ï¿½.");
 			return;
 		} else {
-			System.out.println("°æ°í) ¿Ã¹Ù¸¥ ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!");
+			System.out.println("ï¿½ï¿½ï¿½) ï¿½Ã¹Ù¸ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½!");
 		}
 	}
 
-	// 4. ÈÄ¿ø ½ÅÃ»
+	// 4. ï¿½Ä¿ï¿½ ï¿½ï¿½Ã»
 	private void donationRequest() {
 		List<UsrVO> list = volunteerForDogDAO.findAll();
 		
 		int choice, shelternum, shelterdonation, tissue, pad, food, dognum, dogdonation;
 		String volunteerdate, answer, usrid;
 
-		System.out.println("\n      [ ÈÄ¿ø ½ÅÃ» ]");
+		System.out.println("\n      [ ï¿½Ä¿ï¿½ ï¿½ï¿½Ã» ]");
 		
 		keyboard.nextLine();
 		
-		System.out.print("> È¸¿øÀ¸·Î µî·ÏµÈ ¾ÆÀÌµð¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+		System.out.print("> È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 		usrid = keyboard.nextLine();
 		
 		if(usrid.equals("")) {
-			System.out.println("°æ°í) ¾ÆÀÌµð´Â ÇÊ¼ö ÀÔ·Â »çÇ×ÀÔ´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 			return;
 		}
 		
 		if(!(usrid.equals(usrid))) {
-			System.out.println("°æ°í) ÀÔ·ÂÇÏ½Å ¾ÆÀÌµð°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ï¿½) ï¿½Ô·ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.");
 			return;
 		}
 		
 		donationmenu();
-		System.out.print("> ÈÄ¿ø ¹æ½ÄÀ» ¼±ÅÃÇØÁÖ¼¼¿ä : ");
+		System.out.print("> ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 		choice = keyboard.nextInt();
 
 		if(choice == 1) {
-			System.out.println("\n      [ º¸È£¼Ò ¸ñ·Ï ]");
-			System.out.println("ÈÄ¿ø±ÝÀ¸·Î º¸È£¼Ò Áö¿øÇÏ±â¸¦ ¼±ÅÃÇÏ¼Ì½À´Ï´Ù.");
-			System.out.println("¡Ø ÇöÀç µî·ÏµÇ¾îÀÖ´Â º¸È£¼Ò´Â ´ÙÀ½°ú °°½À´Ï´Ù.");
+			System.out.println("\n      [ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ ]");
+			System.out.println("ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±â¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼Ì½ï¿½ï¿½Ï´ï¿½.");
+			System.out.println("ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ÏµÇ¾ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½È£ï¿½Ò´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 			selectSheltermenu();
-			System.out.print("> ÈÄ¿øÀ» Èñ¸ÁÇÏ½Ã´Â º¸È£¼Ò¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä : ");
+			System.out.print("> ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï½Ã´ï¿½ ï¿½ï¿½È£ï¿½Ò¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 			shelternum = keyboard.nextInt();
 
 			keyboard.nextLine();
 
 			ShelterVO shelter = volunteerForDogDAO.searchShelter(shelternum);
 
-			System.out.println("** ¼±ÅÃÇÏ½Å º¸È£¼ÒÀÇ »ó¼¼ Á¤º¸´Â ´ÙÀ½°ú °°½À´Ï´Ù.");
+			System.out.println("** ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 			System.out.println("------------------------------------------------------------");
-			System.out.println("º¸È£¼Ò¸í : " + shelter.getSheltername());
-			System.out.println("º¸È£¼Ò µî·Ï¹øÈ£ : " + shelter.getShelternum() + "¹ø");
-			System.out.println("ÁÖ¼Ò : " + shelter.getShelteraddress());
-			System.out.println("Ã¥ÀÓÀÚ : " + shelter.getShelteradmin());
-			System.out.println("°èÁÂ¹øÈ£ : " + shelter.getShelteraccount());
+			System.out.println("ï¿½ï¿½È£ï¿½Ò¸ï¿½ : " + shelter.getSheltername());
+			System.out.println("ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½Ï¹ï¿½È£ : " + shelter.getShelternum() + "ï¿½ï¿½");
+			System.out.println("ï¿½Ö¼ï¿½ : " + shelter.getShelteraddress());
+			System.out.println("Ã¥ï¿½ï¿½ï¿½ï¿½ : " + shelter.getShelteradmin());
+			System.out.println("ï¿½ï¿½ï¿½Â¹ï¿½È£ : " + shelter.getShelteraccount());
 			System.out.println("------------------------------------------------------------");
-			System.out.println("º¸È£¼Ò¿¡ ÈÄ¿øÇÏ½Ç ±Ý¾×À» ´ÙÀ½°ú °°Àº ÇüÅÂ·Î ÀÔ·ÂÇØÁÖ¼¼¿ä");
-			System.out.println("ex) 3000 / 30000 / 300000¡¤¡¤¡¤");
+			System.out.println("ï¿½ï¿½È£ï¿½Ò¿ï¿½ ï¿½Ä¿ï¿½ï¿½Ï½ï¿½ ï¿½Ý¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½");
+			System.out.println("ex) 3000 / 30000 / 300000ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 			
-			System.out.print("> ÈÄ¿ø±Ý ÀÔ·Â : ");
+			System.out.print("> ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ : ");
 			shelterdonation = keyboard.nextInt();
 
-			System.out.print("> ÈÄ¿ø ¿¹Á¤ÀÏÀ» YYYY/MM/DD Çü½ÄÀ¸·Î ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+			System.out.print("> ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ YYYY/MM/DD ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 			volunteerdate = keyboard.next();
 			
 			keyboard.nextLine();
@@ -529,78 +529,78 @@ public class volunteerForDogUI {
 
 			if(result == 1) {
 				System.out.println("------------------------------------------------------------");
-				System.out.println("** ÈÄ¿øÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù. ÈÄ¿øÀÚ´ÔÀÇ °ü½É¿¡ °¨»çµå¸®¸ç, ¾ÕÀ¸·Î ÁÁÀº ÀÏ¸¸ °¡µæÇÏ½Ã±æ "+shelter.getSheltername()+"ÀÌ(°¡) ÀÀ¿øÇÕ´Ï´Ù¢¾");
+				System.out.println("** ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½Ä¿ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É¿ï¿½ ï¿½ï¿½ï¿½ï¿½å¸®ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã±ï¿½ "+shelter.getSheltername()+"ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´Ù¢ï¿½");
 				System.out.println("------------------------------------------------------------");
 			} else {
 				System.out.println("------------------------------------------------------------");
-				System.out.println("°æ°í) ÇöÀç ½Ã½ºÅÛ Á¡°ËÁßÀÔ´Ï´Ù. °ü¸®ÀÚ¿¡°Ô ¹®ÀÇÇØÁÖ¼¼¿ä.");
+				System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
 				System.out.println("------------------------------------------------------------");
 				return;
 			}
 			} else if(choice == 2) {
 				System.out.println("------------------------------------------------------------");
-				System.out.println("\n      [ º¸È£¼Ò ¸ñ·Ï ]"); 
-				System.out.println("ÈÄ¿ø±ÝÀ¸·Î À¯±â°ß ÈÄ¿øÇÏ±â¸¦ ¼±ÅÃÇÏ¼Ì½À´Ï´Ù.");
+				System.out.println("\n      [ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ ]"); 
+				System.out.println("ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½ï¿½Ï±â¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼Ì½ï¿½ï¿½Ï´ï¿½.");
 
 			    selectSheltermenu();
-			    System.out.print("> À¯±â°ß Á¤º¸¸¦ Á¶È¸ÇÏ½Ç º¸È£¼Ò ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+			    System.out.print("> ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Ï½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 
 			      try {
 			         shelternum = keyboard.nextInt();
 			         keyboard.nextLine();
 			      } catch (Exception e) {
-			         System.out.println("°æ°í) ¼ýÀÚ ÀÌ¿ÜÀÇ ¹®ÀÚ ÀÔ·ÂÀº ºÒ°¡´ÉÇÕ´Ï´Ù!");
+			         System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½!");
 			         keyboard.nextLine();
 			         return;
 			      }
 
 			      ShelterVO shelter = volunteerForDogDAO.searchShelter(shelternum);
-			      System.out.println("> ÇØ´ç º¸È£¼Ò¿¡¼­ ¼ö¿ëÁßÀÎ À¯±â°ß ¸ñ·ÏÀº ´ÙÀ½°ú °°½À´Ï´Ù. ");
+			      System.out.println("> ï¿½Ø´ï¿½ ï¿½ï¿½È£ï¿½Ò¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ");
 			      System.out.println("------------------------------------------------------------");
-			      System.out.println("¹øÈ£       ÀÌ¸§       ³ªÀÌ          °ßÁ¾       ¼ºº°          Áúº´          ÀÔ¼ÒÀÏ          ÈÄ¿øÀÚ");
+			      System.out.println("ï¿½ï¿½È£       ï¿½Ì¸ï¿½       ï¿½ï¿½ï¿½ï¿½          ï¿½ï¿½ï¿½ï¿½       ï¿½ï¿½ï¿½ï¿½          ï¿½ï¿½ï¿½ï¿½          ï¿½Ô¼ï¿½ï¿½ï¿½          ï¿½Ä¿ï¿½ï¿½ï¿½");
 			      List<DogVO> dogList = volunteerForDogDAO.searchDog(shelternum);
 			      dogList.forEach(d -> System.out.println(d));
 			      System.out.println("------------------------------------------------------------");
 			      
-			      System.out.println("¡Ø µÇµµ·Ï ±âÁ¸¿¡ ÈÄ¿øÀÚ°¡ ¾ø´Â À¯±â°ßÀ» ¼±ÅÃÇØÁÖ½Ã¸é °¨»çÇÏ°Ú½À´Ï´Ù( _ _)!");
-			      System.out.print("> ÈÄ¿øÇÏ½Ç À¯±â°ßÀÇ µî·Ï ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+			      System.out.println("ï¿½ï¿½ ï¿½Çµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°Ú½ï¿½ï¿½Ï´ï¿½( _ _)!");
+			      System.out.print("> ï¿½Ä¿ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 			      try {
 			         dognum = keyboard.nextInt();
 			         keyboard.nextLine();
 			      } catch (Exception e) {
-			         System.out.println("°æ°í) ¼ýÀÚ ÀÌ¿ÜÀÇ ¹®ÀÚ ÀÔ·ÂÀº ºÒ°¡´ÉÇÕ´Ï´Ù!");
+			         System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½!");
 			         keyboard.nextLine();
 			         return;
 			      }
 			      DogVO dogVO = volunteerForDogDAO.findByDogId(dognum);
 			      
-			      System.out.print("> ÈÄ¿øÀ» Èñ¸ÁÇÏ½Ã´Â ³¯Â¥¸¦ 'YYYY/MM/DD' Çü½ÄÀ¸·Î ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+			      System.out.print("> ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï½Ã´ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ 'YYYY/MM/DD' ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 			      volunteerdate = keyboard.nextLine();
 			      
-			      //À¯±â°ß ¼±ÅÃ
-			      System.out.print("> ÈÄ¿øÇÏ½Ç ±Ý¾×À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+			      //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			      System.out.print("> ï¿½Ä¿ï¿½ï¿½Ï½ï¿½ ï¿½Ý¾ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 			      try {
 			         dogdonation = keyboard.nextInt();
 			         keyboard.nextLine();
 			      } catch (Exception e) {
-			         System.out.println("°æ°í) ¼ýÀÚ ÀÌ¿ÜÀÇ ¹®ÀÚ ÀÔ·ÂÀº ºÒ°¡´ÉÇÕ´Ï´Ù!");
+			         System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½!");
 			         keyboard.nextLine();
 			         return;
 			      }
 			      
-			      System.out.print(dogVO.getDogname()+ "¿¡°Ô "+ dogdonation + "¿øÀ» ÈÄ¿øÇÏ½Ã°Ú½À´Ï±î? (Y/N)");
+			      System.out.print(dogVO.getDogname()+ "ï¿½ï¿½ï¿½ï¿½ "+ dogdonation + "ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½? (Y/N)");
 			      answer = keyboard.nextLine();
 
 			      if(!answer.equals("Y")) {
 			         System.out.println("------------------------------------------------------------");
-			         System.out.println("ÈÄ¿øÀÌ Ãë¼ÒµÇ¾ú½À´Ï´Ù.");
+			         System.out.println("ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½ï¿½ÒµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 			         return;
 			      }
 			       
-			      //º»ÀÎ ¾ÆÀÌµð¿¡ ¸Â´Â vvo ¿¡ ³Ö±â
+			      //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Â´ï¿½ vvo ï¿½ï¿½ ï¿½Ö±ï¿½
 			      UsrVO uvo = volunteerForDogDAO.findById(usrid);
 			      
-			      //ÈÄ¿øÀÚ ³Ö´Â ºÎºÐ
+			      //ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Îºï¿½
 			      dogVO.setDogsponsor(uvo.getUsrname());
 			      
 			      volunteerForDogDAO.makeluckydog(dogVO);
@@ -615,49 +615,49 @@ public class volunteerForDogUI {
 
 			      if(result == 1) {
 			         System.out.println("------------------------------------------------------------");
-			         System.out.println("> " + dogVO.getDogname() + "ÀÇ ÈÄ¿øÀÚ°¡ µÇ¾îÁÖ¼Å¼­ °¨»çÇÕ´Ï´Ù. ");
-			         System.out.println("> ¾ÕÀ¸·Î Àß ºÎÅ¹µå·Á¿ä. ÈÄ¿øÀÚ´Ô! U'¡Ü ¤µ ¡Ü'U \t -" + dogVO.getDogname() + "-");
+			         System.out.println("> " + dogVO.getDogname() + "ï¿½ï¿½ ï¿½Ä¿ï¿½ï¿½Ú°ï¿½ ï¿½Ç¾ï¿½ï¿½Ö¼Å¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½. ");
+			         System.out.println("> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Å¹ï¿½ï¿½ï¿½ï¿½ï¿½. ï¿½Ä¿ï¿½ï¿½Ú´ï¿½! U'ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½'U \t -" + dogVO.getDogname() + "-");
 			         System.out.println("------------------------------------------------------------");
 			      } else {
 			         System.out.println("------------------------------------------------------------");
-			         System.out.println("°æ°í) ÇöÀç ½Ã½ºÅÛ Á¡°ËÁßÀÔ´Ï´Ù. °ü¸®ÀÚ¿¡°Ô ¹®ÀÇÇØÁÖ¼¼¿ä.");
+			         System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
 			         System.out.println("------------------------------------------------------------");
 			         return;
 			      }
 				
 			} else if(choice == 3) {
 				System.out.println("------------------------------------------------------------");
-				System.out.println("¿ëÇ°À¸·Î ÈÄ¿øÇÏ±â¸¦ ¼±ÅÃÇÏ¼Ì½À´Ï´Ù.");
-				System.out.println("¡Ø ÇöÀç µî·ÏµÇ¾îÀÖ´Â º¸È£¼Ò´Â ´ÙÀ½°ú °°½À´Ï´Ù.");
+				System.out.println("ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½ï¿½Ï±â¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼Ì½ï¿½ï¿½Ï´ï¿½.");
+				System.out.println("ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ÏµÇ¾ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½È£ï¿½Ò´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 				selectSheltermenu();
-				System.out.print("> ÈÄ¿øÀ» Èñ¸ÁÇÏ½Ã´Â º¸È£¼Ò¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä : ");
+				System.out.print("> ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï½Ã´ï¿½ ï¿½ï¿½È£ï¿½Ò¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 				shelternum = keyboard.nextInt();
 
 				keyboard.nextLine();
 
 				ShelterVO shelter = volunteerForDogDAO.searchShelter(shelternum);
 
-				System.out.println("** ¼±ÅÃÇÏ½Å º¸È£¼ÒÀÇ »ó¼¼ Á¤º¸´Â ´ÙÀ½°ú °°½À´Ï´Ù.");
+				System.out.println("** ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 				System.out.println("------------------------------------------------------------");
-				System.out.println("º¸È£¼Ò¸í : " + shelter.getSheltername());
-				System.out.println("º¸È£¼Ò µî·Ï¹øÈ£ : " + shelter.getShelternum() + "¹ø");
-				System.out.println("ÁÖ¼Ò : " + shelter.getShelteraddress());
-				System.out.println("»ó¼¼ ÁÖ¼Ò : " + shelter.getShelterdetailaddress());
-				System.out.println("Ã¥ÀÓÀÚ : " + shelter.getShelteradmin());
+				System.out.println("ï¿½ï¿½È£ï¿½Ò¸ï¿½ : " + shelter.getSheltername());
+				System.out.println("ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½Ï¹ï¿½È£ : " + shelter.getShelternum() + "ï¿½ï¿½");
+				System.out.println("ï¿½Ö¼ï¿½ : " + shelter.getShelteraddress());
+				System.out.println("ï¿½ï¿½ ï¿½Ö¼ï¿½ : " + shelter.getShelterdetailaddress());
+				System.out.println("Ã¥ï¿½ï¿½ï¿½ï¿½ : " + shelter.getShelteradmin());
 				
 				goodsmenu();
-				System.out.print("> ÈÄ¿øÇÏ½Ç ¿ëÇ°ÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+				System.out.print("> ï¿½Ä¿ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 				choice = keyboard.nextInt();
 				
 				if(choice == 1) {
 					System.out.println("------------------------------------------------------------");
-					System.out.println("ÈÄ¿ø ¹°Ç° : ¹°Æ¼½´¸¦ ¼±ÅÃÇÏ¼Ì½À´Ï´Ù.");
-					System.out.print("> ÈÄ¿øÇÏ½Ç ¹°Ç°ÀÇ ¼ö·®À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+					System.out.println("ï¿½Ä¿ï¿½ ï¿½ï¿½Ç° : ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼Ì½ï¿½ï¿½Ï´ï¿½.");
+					System.out.print("> ï¿½Ä¿ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 					tissue = keyboard.nextInt();
 					
 					keyboard.nextLine();
 					
-					System.out.print("> ÈÄ¿ø ¿¹Á¤ÀÏÀ» YYYY/MM/DD Çü½ÄÀ¸·Î ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+					System.out.print("> ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ YYYY/MM/DD ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 					volunteerdate = keyboard.nextLine();
 					
 					VolunteerVO vvo = new VolunteerVO();
@@ -670,23 +670,23 @@ public class volunteerForDogUI {
 
 					if(result == 1) {
 						System.out.println("------------------------------------------------------------");
-						System.out.println("** ÈÄ¿øÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù. ÈÄ¿øÀÚ´ÔÀÇ °ü½É¿¡ °¨»çµå¸®¸ç, ¾ÕÀ¸·Î ÁÁÀº ÀÏ¸¸ °¡µæÇÏ½Ã±æ "+shelter.getSheltername()+"ÀÌ(°¡) ÀÀ¿øÇÕ´Ï´Ù¢¾");
+						System.out.println("** ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½Ä¿ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É¿ï¿½ ï¿½ï¿½ï¿½ï¿½å¸®ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã±ï¿½ "+shelter.getSheltername()+"ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´Ù¢ï¿½");
 						System.out.println("------------------------------------------------------------");
 					} else {
 						System.out.println("------------------------------------------------------------");
-						System.out.println("°æ°í) ÇöÀç ½Ã½ºÅÛ Á¡°ËÁßÀÔ´Ï´Ù. °ü¸®ÀÚ¿¡°Ô ¹®ÀÇÇØÁÖ¼¼¿ä.");
+						System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
 						System.out.println("------------------------------------------------------------");
 						return;
 					}
 				} else if(choice == 2) {
 					System.out.println("------------------------------------------------------------");
-					System.out.println("ÈÄ¿ø ¹°Ç° : ¹èº¯ ÆÐµå¸¦ ¼±ÅÃÇÏ¼Ì½À´Ï´Ù.");
-					System.out.print("> ÈÄ¿øÇÏ½Ç ¹°Ç°ÀÇ ¼ö·®À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+					System.out.println("ï¿½Ä¿ï¿½ ï¿½ï¿½Ç° : ï¿½èº¯ ï¿½Ðµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼Ì½ï¿½ï¿½Ï´ï¿½.");
+					System.out.print("> ï¿½Ä¿ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 					pad = keyboard.nextInt();
 					
 					keyboard.nextLine();
 					
-					System.out.print("> ÈÄ¿ø ¿¹Á¤ÀÏÀ» YYYY/MM/DD Çü½ÄÀ¸·Î ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+					System.out.print("> ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ YYYY/MM/DD ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 					volunteerdate = keyboard.nextLine();
 					
 					VolunteerVO vvo = new VolunteerVO();
@@ -699,23 +699,23 @@ public class volunteerForDogUI {
 
 					if(result == 1) {
 						System.out.println("------------------------------------------------------------");
-						System.out.println("** ÈÄ¿øÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù. ÈÄ¿øÀÚ´ÔÀÇ °ü½É¿¡ °¨»çµå¸®¸ç, ¾ÕÀ¸·Î ÁÁÀº ÀÏ¸¸ °¡µæÇÏ½Ã±æ "+shelter.getSheltername()+"ÀÌ(°¡) ÀÀ¿øÇÕ´Ï´Ù¢¾");
+						System.out.println("** ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½Ä¿ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É¿ï¿½ ï¿½ï¿½ï¿½ï¿½å¸®ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã±ï¿½ "+shelter.getSheltername()+"ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´Ù¢ï¿½");
 						System.out.println("------------------------------------------------------------");
 					} else {
 						System.out.println("------------------------------------------------------------");
-						System.out.println("°æ°í) ÇöÀç ½Ã½ºÅÛ Á¡°ËÁßÀÔ´Ï´Ù. °ü¸®ÀÚ¿¡°Ô ¹®ÀÇÇØÁÖ¼¼¿ä.");
+						System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
 						System.out.println("------------------------------------------------------------");
 						return;
 					}
 				} else if(choice == 3) {
 					System.out.println("------------------------------------------------------------");
-					System.out.println("ÈÄ¿ø ¹°Ç° : »ç·á¸¦ ¼±ÅÃÇÏ¼Ì½À´Ï´Ù.");
-					System.out.print("> ÈÄ¿øÇÏ½Ç ¹°Ç°ÀÇ ¼ö·®À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+					System.out.println("ï¿½Ä¿ï¿½ ï¿½ï¿½Ç° : ï¿½ï¿½á¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼Ì½ï¿½ï¿½Ï´ï¿½.");
+					System.out.print("> ï¿½Ä¿ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 					food = keyboard.nextInt();
 					
 					keyboard.nextLine();
 					
-					System.out.print("> ÈÄ¿ø ¿¹Á¤ÀÏÀ» YYYY/MM/DD Çü½ÄÀ¸·Î ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+					System.out.print("> ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ YYYY/MM/DD ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 					volunteerdate = keyboard.nextLine();
 					
 					VolunteerVO vvo = new VolunteerVO();
@@ -728,66 +728,66 @@ public class volunteerForDogUI {
 
 					if(result == 1) {
 						System.out.println("------------------------------------------------------------");
-						System.out.println("** ÈÄ¿øÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù. ÈÄ¿øÀÚ´ÔÀÇ °ü½É¿¡ °¨»çµå¸®¸ç, ¾ÕÀ¸·Î ÁÁÀº ÀÏ¸¸ °¡µæÇÏ½Ã±æ "+shelter.getSheltername()+"ÀÌ(°¡) ÀÀ¿øÇÕ´Ï´Ù¢¾");
+						System.out.println("** ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½Ä¿ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É¿ï¿½ ï¿½ï¿½ï¿½ï¿½å¸®ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã±ï¿½ "+shelter.getSheltername()+"ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´Ù¢ï¿½");
 						System.out.println("------------------------------------------------------------");
 					} else {
 						System.out.println("------------------------------------------------------------");
-						System.out.println("°æ°í) ÇöÀç ½Ã½ºÅÛ Á¡°ËÁßÀÔ´Ï´Ù. °ü¸®ÀÚ¿¡°Ô ¹®ÀÇÇØÁÖ¼¼¿ä.");
+						System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
 						System.out.println("------------------------------------------------------------");
 						return;
 					}
 				} else if(choice == 0) {
-					System.out.println("** ¸Þ´º È­¸éÀ¸·Î µ¹¾Æ°©´Ï´Ù.");
+					System.out.println("** ï¿½Þ´ï¿½ È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½Ï´ï¿½.");
 					return;
 				} else {
-					System.out.println("°æ°í) ¿Ã¹Ù¸¥ ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!");
+					System.out.println("ï¿½ï¿½ï¿½) ï¿½Ã¹Ù¸ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½!");
 				}
 				
 			} else if(choice == 0) {
-				System.out.println("** ¸Þ´º È­¸éÀ¸·Î µ¹¾Æ°©´Ï´Ù.");
+				System.out.println("** ï¿½Þ´ï¿½ È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½Ï´ï¿½.");
 				return;
 			} else {
-				System.out.println("°æ°í) ¿Ã¹Ù¸¥ ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!");
+				System.out.println("ï¿½ï¿½ï¿½) ï¿½Ã¹Ù¸ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½!");
 			}
 			}
 	
-	// 5. È¸¿ø Á¤º¸ Á¶È¸
+	// 5. È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 	private void selectOne() {
 		int choice, usrage, shelterdonation, dogdonation, pad, food, tissue, shelternum;
 		String usrid, usrname, usraddress, usrphone, volunteerdate, luckydog;
 		
-		System.out.println("\n      [ È¸¿ø Á¤º¸ Á¶È¸]");
+		System.out.println("\n      [ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸]");
 		
 		keyboard.nextLine();
 
-		System.out.print("> Á¤º¸¸¦ Á¶È¸ÇÏ½Ç ¾ÆÀÌµð¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+		System.out.print("> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 		usrid = keyboard.nextLine();
 
 		UsrVO uvo = volunteerForDogDAO.findById(usrid);
 
 		if(uvo == null) {
 			System.out.println("------------------------------------------------------------");
-			System.out.println("°æ°í) ÇØ´ç ¾ÆÀÌµð·Î µî·ÏµÈ È¸¿ø Á¤º¸´Â ¾ø½À´Ï´Ù. ¾ÆÀÌµð¸¦ È®ÀÎÇØÁÖ¼¼¿ä.");
+			System.out.println("ï¿½ï¿½ï¿½) ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½ï¿½Ïµï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È®ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
 			return;
 		}
 
 		usrmenu();
 		System.out.println("------------------------------------------------------------");
-		System.out.print("Á¶È­ÇÏ½Ç Ç×¸ñÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+		System.out.print("ï¿½ï¿½È­ï¿½Ï½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 		choice = keyboard.nextInt();
 		
 		keyboard.nextLine();
 		
 		if(choice == 1) {
 			System.out.println("------------------------------------------------------------");
-			System.out.println("ÀÔ·ÂÇÏ½Å ¾ÆÀÌµð·Î Á¶È¸µÈ È¸¿ø Á¤º¸´Â ´ÙÀ½°ú °°½À´Ï´Ù.");
+			System.out.println("ï¿½Ô·ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 			System.out.println(uvo);
 			System.out.println("------------------------------------------------------------");
 		} else if(choice == 2) {
 			System.out.println("------------------------------------------------------------");
-			System.out.println("ÀÔ·ÂÇÏ½Å ¾ÆÀÌµð·Î Á¶È¸µÈ ºÀ»ç ¹× ÈÄ¿ø Á¤º¸´Â ´ÙÀ½°ú °°½À´Ï´Ù.");
+			System.out.println("ï¿½Ô·ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 			System.out.println("------------------------------------------------------------");
-			System.out.println("                  ÀÏ½Ã                  º¸È£¼Ò ¹øÈ£   º¸È£¼Ò ÈÄ¿ø ±Ý¾×(¿ø)  ÈÄ¿øÁßÀÎ À¯±â°ß   À¯±â°ß ÈÄ¿ø ±Ý¾×(¿ø)    ¹°Æ¼½´(°³)     ¹èº¯ ÆÐµå(¼¼Æ®)    »ç·á(Æ÷´ë) ");
+			System.out.println("                  ï¿½Ï½ï¿½                  ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½È£   ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ä¿ï¿½ ï¿½Ý¾ï¿½(ï¿½ï¿½)  ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½   ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½ ï¿½Ý¾ï¿½(ï¿½ï¿½)    ï¿½ï¿½Æ¼ï¿½ï¿½(ï¿½ï¿½)     ï¿½èº¯ ï¿½Ðµï¿½(ï¿½ï¿½Æ®)    ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) ");
 			List<VolunteerVO> VList = volunteerForDogDAO.listRequest(usrid);
 			VList.forEach(v -> System.out.println(v));
 			int TotalShelterDonation = 0;
@@ -806,74 +806,74 @@ public class volunteerForDogUI {
 		      
 		      System.out.println();
 		      System.out.println("--------------------------------------------------------------------");
-		      System.out.println(" * ÃÑ º¸È£¼Ò ÈÄ¿ø ±Ý¾× : " + TotalShelterDonation + "¿ø");
-		      System.out.println(" * ÃÑ À¯±â°ß ÈÄ¿ø ±Ý¾× : " + TotalDogDonation +"¿ø");
-		      System.out.println(" * ÈÄ¿øÇÑ ¹°Æ¼½´ °¹¼ö : " + TotalTissue + "°³");
-		      System.out.println(" * ÈÄ¿øÇÑ ¹èº¯ ÆÐµå °¹¼ö : " + TotalPad +"¼¼Æ®");
-		      System.out.println(" * ÈÄ¿øÇÑ »ç·á °¹¼ö : " + TotalFood + "Æ÷´ë");
+		      System.out.println(" * ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ä¿ï¿½ ï¿½Ý¾ï¿½ : " + TotalShelterDonation + "ï¿½ï¿½");
+		      System.out.println(" * ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½ ï¿½Ý¾ï¿½ : " + TotalDogDonation +"ï¿½ï¿½");
+		      System.out.println(" * ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : " + TotalTissue + "ï¿½ï¿½");
+		      System.out.println(" * ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½èº¯ ï¿½Ðµï¿½ ï¿½ï¿½ï¿½ï¿½ : " + TotalPad +"ï¿½ï¿½Æ®");
+		      System.out.println(" * ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : " + TotalFood + "ï¿½ï¿½ï¿½ï¿½");
 
 
 		      System.out.println();
 			
 		} else if(choice == 0) {
 			return;
-		} else {System.out.println("Á¶È¸ÇÏ½Ç Ç×¸ñÀÇ ¹øÈ£¸¦ Á¤È®ÇÏ°Ô ÀÔ·ÂÇØÁÖ¼¼¿ä!");
+		} else {System.out.println("ï¿½ï¿½È¸ï¿½Ï½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½È®ï¿½Ï°ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½!");
 	}}
 
-	// 6. È¸¿ø Á¤º¸ ¼öÁ¤
+	// 6. È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	private void update() {
 		String answer, usrid, usraddress, usrphone;
 		int result;
 
-		System.out.println("\n      [ È¸¿ø Á¤º¸ ¼öÁ¤ ]");
+		System.out.println("\n      [ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ]");
 		keyboard.nextLine();
 
-		System.out.print("> ¼öÁ¤ÇÏ½Ç ¾ÆÀÌµð¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+		System.out.print("> ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 		usrid = keyboard.nextLine();
 
 		UsrVO findById = volunteerForDogDAO.findById(usrid);
 
 		if(findById == null) {
 			System.out.println("------------------------------------------------------------");
-			System.out.println("°æ°í) ÇØ´ç ¾ÆÀÌµð·Î µî·ÏµÈ È¸¿ø Á¤º¸´Â ¾ø½À´Ï´Ù. ¾ÆÀÌµð¸¦ È®ÀÎÇØÁÖ¼¼¿ä.");
+			System.out.println("ï¿½ï¿½ï¿½) ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½ï¿½Ïµï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È®ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
 			return;
 		}
 
 		System.out.println("------------------------------------------------------------");
-		System.out.println("ÀÔ·ÂÇÏ½Å ¾ÆÀÌµð·Î Á¶È¸µÈ È¸¿ø Á¤º¸´Â ´ÙÀ½°ú °°½À´Ï´Ù.");
+		System.out.println("ï¿½Ô·ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 		System.out.println(findById);
 		System.out.println("------------------------------------------------------------");
 
-		System.out.print("¼öÁ¤ÇÏ½Ã°Ú½À´Ï±î? (y/n) ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½? (y/n) ");
 		answer = keyboard.nextLine();
 
 		if(!answer.equals("y")) {
 			System.out.println("------------------------------------------------------------");
-			System.out.println("°æ°í) ¼öÁ¤ ÀÛ¾÷ÀÌ Ãë¼ÒµÇ¾ú½À´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ÒµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 			return;
 		}
 
-		System.out.print("º»ÀÎ È®ÀÎÀ» À§ÇÑ ¾ÆÀÌµð ÀçÀÔ·Â : ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½Ô·ï¿½ : ");
 		usrid = keyboard.nextLine();
 
 		if(usrid.length() == 0) {
-			System.out.println("°æ°í) ÇÊ¼ö ÀÔ·Â Ç×¸ñÀÔ´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ï¿½) ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½×¸ï¿½ï¿½Ô´Ï´ï¿½.");
 			return;
 		}
 
-		System.out.print("»õ·Î¿î ÁÖ¼Ò ÀÔ·Â : ");
+		System.out.print("ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½Ö¼ï¿½ ï¿½Ô·ï¿½ : ");
 		usraddress = keyboard.nextLine();
 
 		if(usraddress.length() == 0) {
-			System.out.println("°æ°í) ÁÖ¼Ò´Â ÇÊ¼ö ÀÔ·Â Ç×¸ñÀÔ´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ï¿½) ï¿½Ö¼Ò´ï¿½ ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½×¸ï¿½ï¿½Ô´Ï´ï¿½.");
 			return;
 		}
 
-		System.out.print("»õ·Î¿î ¿¬¶ôÃ³ ÀÔ·Â : ");
+		System.out.print("ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ ï¿½Ô·ï¿½ : ");
 		usrphone = keyboard.nextLine();
 
 		if(usrphone.length() == 0) {
-			System.out.println("°æ°í) ¿¬¶ôÃ³ ÇÊ¼ö ÀÔ·Â Ç×¸ñÀÔ´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½Ã³ ï¿½Ê¼ï¿½ ï¿½Ô·ï¿½ ï¿½×¸ï¿½ï¿½Ô´Ï´ï¿½.");
 			return;
 		}
 
@@ -886,57 +886,57 @@ public class volunteerForDogUI {
 
 		if(result == 1) {
 			System.out.println("------------------------------------------------------------");
-			System.out.println("È¸¿ø Á¤º¸°¡ ¼º°øÀûÀ¸·Î ¼öÁ¤µÇ¾ú½À´Ï´Ù.");
+			System.out.println("È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 			System.out.println("------------------------------------------------------------");
 		} else {
 			System.out.println("------------------------------------------------------------");
-			System.out.println("°æ°í) ¼öÁ¤ ÀÛ¾÷ÀÌ Ãë¼ÒµÇ¾ú½À´Ï´Ù. °ü¸®ÀÚ¿¡°Ô ¹®ÀÇÇØÁÖ¼¼¿ä.");
+			System.out.println("ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ÒµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
 			System.out.println("------------------------------------------------------------");
 			return;
 		}
 
 	}
 
-	// 7. È¸¿ø Á¤º¸ »èÁ¦
+	// 7. È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	private void delete() {
 		String usrid, answer, answer2;
 		int result;
 
-		System.out.println("\n      [ È¸¿ø Á¤º¸ »èÁ¦]");
+		System.out.println("\n      [ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½]");
 		keyboard.nextLine();
 
-		System.out.print("> Å»ÅðÇÏ½Ç ¾ÆÀÌµð¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+		System.out.print("> Å»ï¿½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ : ");
 		usrid = keyboard.nextLine();
 
 		UsrVO findById = volunteerForDogDAO.findById(usrid);
 
 		if(findById == null) {
 			System.out.println("------------------------------------------------------------");
-			System.out.println("°æ°í) ÇØ´ç ¾ÆÀÌµð·Î µî·ÏµÈ È¸¿ø Á¤º¸´Â ¾ø½À´Ï´Ù. ¾ÆÀÌµð¸¦ È®ÀÎÇØÁÖ¼¼¿ä.");
+			System.out.println("ï¿½ï¿½ï¿½) ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½ï¿½Ïµï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È®ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
 			return;
 		}
 
 		System.out.println("------------------------------------------------------------");
-		System.out.println("ÀÔ·ÂÇÏ½Å ¾ÆÀÌµð·Î Á¶È¸µÈ È¸¿ø Á¤º¸´Â ´ÙÀ½°ú °°½À´Ï´Ù.");
+		System.out.println("ï¿½Ô·ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 		System.out.println(findById);
 		System.out.println("------------------------------------------------------------");
 
-		System.out.print("Å»ÅðÇÏ½Ã°Ú½À´Ï±î? (y/n) ");
+		System.out.print("Å»ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½? (y/n) ");
 		answer = keyboard.nextLine();
 
 		if(!answer.equals("y")) {
 			System.out.println("------------------------------------------------------------");
-			System.out.println("°æ°í) Å»Åð ÀÛ¾÷ÀÌ Ãë¼ÒµÇ¾ú½À´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ï¿½) Å»ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ÒµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 			return;
 		}
 
 		System.out.println("------------------------------------------------------------");
-		System.out.print("Å»Åð ÈÄ 1³â°£ Àç°¡ÀÔÀÌ ºÒ°¡ÇÕ´Ï´Ù. Á¤¸» Å»ÅðÇÏ½Ã°Ú½À´Ï±î? (Y/N) ");
+		System.out.print("Å»ï¿½ï¿½ ï¿½ï¿½ 1ï¿½â°£ ï¿½ç°¡ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½Õ´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½? (Y/N) ");
 		answer2 = keyboard.nextLine();
 
 		if(!answer2.equals("Y")) {
 			System.out.println("------------------------------------------------------------");
-			System.out.println("°æ°í) Å»Åð ÀÛ¾÷ÀÌ Ãë¼ÒµÇ¾ú½À´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ï¿½) Å»ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ÒµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 			return;
 		}
 
@@ -944,77 +944,77 @@ public class volunteerForDogUI {
 
 		if(result == 0) {
 			System.out.println("------------------------------------------------------------");
-			System.out.println("°æ°í) Å»Åð ÀÛ¾÷ÀÌ Ãë¼ÒµÇ¾ú½À´Ï´Ù. °ü¸®ÀÚ¿¡°Ô ¹®ÀÇÇØÁÖ¼¼¿ä.");
+			System.out.println("ï¿½ï¿½ï¿½) Å»ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ÒµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
 		}
 		System.out.println("------------------------------------------------------------");
-		System.out.println("È¸¿ø´ÔÀÇ Å»Åð°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù. ÀÌ¿ëÇØÁÖ¼Å¼­ °¨»çÇÕ´Ï´Ù.");
+		System.out.println("È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½Ö¼Å¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.");
 
 	}
 
 	public void menu() {
-		System.out.println("===== [À¯±â°ß ºÀ»ç È°µ¿ ½ÅÃ» ÇÁ·Î±×·¥] =====");
-		System.out.println("	 1. È¸¿ø Á¤º¸ µî·Ï");
-		System.out.println("	 2. º¸È£¼Ò Á¶È¸");
-		System.out.println("	 3. ºÀ»ç ½ÅÃ»");
-		System.out.println("	 4. ÈÄ¿ø ½ÅÃ»");
-		System.out.println("	 5. È¸¿ø Á¤º¸ Á¶È¸");
-		System.out.println("	 6. È¸¿ø Á¤º¸ ¼öÁ¤");
-		System.out.println("	 7. È¸¿ø Á¤º¸ »èÁ¦");
-		System.out.println("	 0. Á¾ ·á");
+		System.out.println("===== [ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½Î±×·ï¿½] =====");
+		System.out.println("	 1. È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½");
+		System.out.println("	 2. ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½È¸");
+		System.out.println("	 3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»");
+		System.out.println("	 4. ï¿½Ä¿ï¿½ ï¿½ï¿½Ã»");
+		System.out.println("	 5. È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸");
+		System.out.println("	 6. È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+		System.out.println("	 7. È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+		System.out.println("	 0. ï¿½ï¿½ ï¿½ï¿½");
 		System.out.println("==========================");
-		System.out.print  ("     ¼±ÅÃ> ");
+		System.out.print  ("     ï¿½ï¿½ï¿½ï¿½> ");
 	}
 
 	private void selectSheltermenu() {    
 		System.out.println("------------------------------------------------------------");
-		System.out.println("        1) À¯»ç¶û: À¯±âµ¿¹° »ç¶û ³ª´©±â");
-		System.out.println("        2) ¾ÆÁö³× ¸¶À»");
-		System.out.println("        3) ºñ±Û ±¸Á¶ ³×Æ®¿öÅ©");
-		System.out.println("        4) ³»»ç¶û ¹ÙµÏÀÌ");
-		System.out.println("        5) Çàµ¿ÇÏ´Â µ¿¹°»ç¶û");
+		System.out.println("        1) ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½âµ¿ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		System.out.println("        2) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+		System.out.println("        3) ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½Å©");
+		System.out.println("        4) ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ùµï¿½ï¿½ï¿½");
+		System.out.println("        5) ï¿½àµ¿ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		System.out.println("------------------------------------------------------------");
 	}
 
 	private void shelterSubmenu() {
-		System.out.println("        1) ¼ö¿ëÁßÀÎ À¯±â°ß ¸®½ºÆ® È®ÀÎ");
-		System.out.println("        2) ºÀ»çÁö »ó¼¼ ÁÖ¼Ò È®ÀÎ");
-		System.out.println("        3) ÈÄ¿ø °èÁÂ È®ÀÎ");
-		System.out.println("        0) ¸ÞÀÎ ¸Þ´º·Î µ¹¾Æ°¡±â");
+		System.out.println("        1) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® È®ï¿½ï¿½");
+		System.out.println("        2) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö¼ï¿½ È®ï¿½ï¿½");
+		System.out.println("        3) ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½");
+		System.out.println("        0) ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½");
 		System.out.println("------------------------------------------------------------");
-		System.out.print  ("          ¼±ÅÃ> ");
+		System.out.print  ("          ï¿½ï¿½ï¿½ï¿½> ");
 	}
 
 	private void volunteermenu() {
 		System.out.println("------------------------------------------------------------");
-		System.out.println("        1) ÇöÀç µî·ÏµÈ ¸ðµç º¸È£¼Ò ¸®½ºÆ® È®ÀÎÇÏ±â");
-		System.out.println("        2) ³» ±ÙÃ³ º¸È£¼Ò Ã£±â");
-		System.out.println("        0) ¸ÞÀÎ ¸Þ´º·Î µ¹¾Æ°¡±â");
+		System.out.println("        1) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® È®ï¿½ï¿½ï¿½Ï±ï¿½");
+		System.out.println("        2) ï¿½ï¿½ ï¿½ï¿½Ã³ ï¿½ï¿½È£ï¿½ï¿½ Ã£ï¿½ï¿½");
+		System.out.println("        0) ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½");
 		System.out.println("------------------------------------------------------------");
-		System.out.print("     ¼±ÅÃ> ");
+		System.out.print("     ï¿½ï¿½ï¿½ï¿½> ");
 	}
 	
 	private void donationmenu() {
 		System.out.println("------------------------------------------------------------");
-		System.out.println("        1) ÈÄ¿ø±ÝÀ¸·Î º¸È£¼Ò Áö¿øÇÏ±â");
-		System.out.println("        2) ÈÄ¿ø±ÝÀ¸·Î À¯±â°ß ÈÄ¿øÇÏ±â");
-		System.out.println("        3) ¿ëÇ°À¸·Î ÈÄ¿øÇÏ±â");
-		System.out.println("        0) ¸ÞÀÎ ¸Þ´º·Î µ¹¾Æ°¡±â");
+		System.out.println("        1) ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½");
+		System.out.println("        2) ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½ï¿½Ï±ï¿½");
+		System.out.println("        3) ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½ï¿½Ï±ï¿½");
+		System.out.println("        0) ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½");
 		
 	}
 	
 	private void goodsmenu() {
 		System.out.println("------------------------------------------------------------");
-		System.out.println("        1) ¹°Æ¼½´");
-		System.out.println("        2) ¹èº¯ ÆÐµå");
-		System.out.println("        3) »ç·á");
-		System.out.println("        0) ¸ÞÀÎ ¸Þ´º·Î µ¹¾Æ°¡±â");
+		System.out.println("        1) ï¿½ï¿½Æ¼ï¿½ï¿½");
+		System.out.println("        2) ï¿½èº¯ ï¿½Ðµï¿½");
+		System.out.println("        3) ï¿½ï¿½ï¿½");
+		System.out.println("        0) ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½");
 	}
 	
 	private void usrmenu() {
 		System.out.println("------------------------------------------------------------");
-		System.out.println("        1) È¸¿ø Á¤º¸ È®ÀÎÇÏ±â");
-		System.out.println("        2) ºÀ»ç ¹× ÈÄ¿ø ³»¿ª È®ÀÎÇÏ±â");
-		System.out.println("        0) ¸ÞÀÎ ¸Þ´º·Î µ¹¾Æ°¡±â");
+		System.out.println("        1) È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ï±ï¿½");
+		System.out.println("        2) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ï±ï¿½");
+		System.out.println("        0) ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½");
 	}
 
 }

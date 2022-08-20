@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http//thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>장바구니 목록</title>
+<style>
+div {
+	width: 300px;
+	border-radius: 2px;
+	box-shadow: 2px 2px 2px 2px #e5e5e5;
+}
+
+table th, td {
+	border: 1px dotted #bcb8b1;
+	width: 300px;
+	text-align: center;
+}
+
+th {
+	background-color: #ADD8E6;
+}
+</style>
+<script>
+	function deleteOrderlist(n) {
+		let num = document.getElementById('num'); //히든
+		let form = document.getElementById('deleteForm'); //폼
+
+		if (confirm('삭제하시겠습니까?')) {
+			num.value = n;
+			form.submit();
+		}
+	}
+</script>
+</head>
+<body>
+	<h1>장바구니 목록</h1>
+	<!-- 삭제시 전송할 폼 -->
+	<form th:action="@{/delete}" method="post" id="deleteForm">
+		<input type="hidden" name="num" value="0" id="num"> 
+	</form>
+	<table>
+		<tr>
+			<th>제품번호</th>
+			<th>아이디</th>
+			<th>이름</th>
+			<th>주소</th>
+			<th>이름</th>
+			<th>수량</th>
+			<th>가격</th>
+			<th></th>
+		</tr>
+		<tr th:each="ol:${orderlist}" class="list">
+			<td th:text="${ol.p_num}"></td>
+			<td th:text="${ol.id}"></td>
+			<td th:text="${ol.name}"></td>
+			<td th:text="${ol.address}"></td>
+			<td th:text="${ol.p_name}"></td>
+			<td th:text="${ol.p_amount}"></td>
+			<td th:text="${ol.p_price}"></td>
+			<td><input type="button" value="삭제" th:num="${ol.p_num}"
+				th:onclick="deleteOrderlist(this.getAttribute('num'))"></td>
+		</tr>
+	</table>
+	<input type="button" value="홈으로" th:onclick="|location.href='@{/}'|">
+
+</body>
+</html>

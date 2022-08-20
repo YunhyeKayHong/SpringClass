@@ -1,0 +1,31 @@
+@charset "UTF-8";
+*{
+	background-color: tan;
+	margin : 0 auto;
+}
+div.content{
+	margin: o auto;
+	width : 400px;
+	height : 400px;
+	text-align : center;
+}
+h2{
+    text-align : center;    
+	font-style: oblique;
+	color : white;
+}
+input[type="button"] {
+   	font-style: oblique;
+    margin : 0 auto;
+    background-color: #fefae0;
+    border : none;
+    
+}
+table th, td{
+	border : 1px dotted;
+	color : white;
+	margin: o auto;
+	width : 100px;
+	height : 20px;
+	text-align : center;
+}

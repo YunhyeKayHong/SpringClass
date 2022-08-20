@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http//thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>로 그 인</title>
+<style>
+div{
+	width: 400px;
+	height: 40vh;
+	background-color: #faf9f9;
+		text-align: center;
+		    margin: 0 auto;
+		
+}
+
+header>h1 {
+	height : 50px;
+	text-align: center;
+	background-color: #1d3557;
+	color: white;
+	font-style: oblique;
+}
+section{	
+	padding-right : 50px;
+	text-align : right;
+}
+
+input[type="text"], input[type="password"]{
+    width: 200px;
+    height: 20px;
+    margin-bottom: 7px;
+}
+
+input[type="submit"], input[type="button"] {
+	background-color: #f07167;
+	color: white;
+	padding: 0.30rem 1.75rem;
+	font-size: 0.85rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 10rem;
+	text-align: center;
+}
+
+div.err{
+	width: 400px;
+	height: 7.5vh;
+	color :  #f07167;
+}
+
+</style>
+</head>
+<body>
+<div>
+<header>
+<h1> Login </h1>
+</header>
+	<section>
+	<form th:action="@{/Member/login}" method="post">
+		<label>ID</label>
+		<input type="text" name="memberid" id="memberid"><br>
+		<label>PW</label>
+		<input type="password" name="memberpw" id="memberpw"><br>
+		<p><div class="err" th:if="${param.error}">ID 또는 비밀번호가 틀립니다.</div>
+		   <div class="err" th:if="${param.error}"><script>alert('ID 또는 비밀번호가 틀립니다.')</script></div>
+		</p>
+		<input type="submit" value="로그인">
+	</form>
+	</section>
+	</div>
+</body>
+</html>

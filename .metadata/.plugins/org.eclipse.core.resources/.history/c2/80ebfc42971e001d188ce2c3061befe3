@@ -1,0 +1,28 @@
+package net.softsociety.web.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import lombok.extern.slf4j.Slf4j;
+import net.softsociety.web.dao.CommentDAO;
+import net.softsociety.web.domain.Comment;
+
+@Slf4j
+@Controller
+@ResponseBody
+@RequestMapping("aj")
+public class CommentRestController {
+
+	@Autowired
+	CommentDAO dao;
+	
+	//댓글 저장
+	@PostMapping("insert")
+	public void insert(Comment comment){
+		dao.insertComment(comment);
+	}
+	
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>여기는 aj2 aj2</title>
+</head>
+<script th:src="@{/js/jquery-3.6.0.js}"></script>
+<script>
+/* 페이지가 준비되면 바로 실행할 함수 */
+$(document).ready(function(){
+	$('#formButton1').click(formSubmit1);
+	$('#formButton2').click(formSubmit2);
+	$('#formButton3').click(formSubmit3);
+	$('#bt1').click(getObject1);
+	$('#bt2').click(getObject2);
+	$('#bt3').click(getList);
+	
+}); 
+
+function formSubmit1(){
+	let n = $('#name').val();
+	let a = $('#age').val();
+	let p = $('#phone').val();
+		
+	//페이지 이동 없이 데이터만 보내기
+	$.ajax({
+		url: 'insert1',
+		type: 'post',
+		data: {name: n, age: a, phone: p}, //컨트롤러에서 기다리고 있는 변수명이랑 같아야 함(name, age, phone처럼)
+		success: function(){
+			alert('저장되었습니다.');
+			$('#name').val(''); //val()안에 변경할 내용을 넣는 것이 보통인데, 리셋 시키고 싶으면 ''으로 빈칸 넣기
+			$('#age').val('0');
+			$('#phone').val('');
+		},
+		error: function(){
+			alert('저장 실패');
+		}
+	});
+}
+
+
+function formSubmit2(){
+	let n = $('#name2').val();
+	let a = $('#age2').val();
+	let p = $('#phone2').val();
+		
+	//페이지 이동 없이 데이터만 보내기
+	$.ajax({
+		url: 'insert2',
+		type: 'post',
+		data: {name: n, age: a, phone: p}, //객체로 보내기
+		success: function(){
+			alert('저장되었습니다.');
+			$('#name2').val(''); 
+			$('#age2').val('0');
+			$('#phone2').val('');
+		},
+		error: function(){
+			alert('저장 실패');
+		}
+	});
+}
+
+function formSubmit3(){
+	$.ajax({
+		url: 'insert3',
+		type: 'post',
+		data: $('#writeForm3').serialize(),//name이 붙어있는 앞의 모든 데이터들을 모두 보냄 
+		success: function(){
+			alert('저장되었습니다.');
+			$('#name').val(''); 
+			$('#age').val('0');
+			$('#phone').val('');
+		},
+		error: function(){
+			alert('저장 실패');
+		}
+	});
+}
+
+function getObject1(){
+	$.ajax({
+		url: 'getObject1',
+		type: 'get',
+		dataType: 'text',
+		success: function(ob){
+			$('#output1').html(ob);
+		},
+		error: function(){
+			alert('저장 실패');
+		}
+	});
+}
+function getObject2(){
+	$.ajax({
+		url: 'getObject2',
+		type: 'get',
+		dataType: 'json',
+		success: function(ob){
+			let s = '<p>' + ob.name + '</p>';
+			s += '<p>' + ob.age + '</p>'
+			s += '<p>' + ob.phone + '</p>'
+			
+			$('#output2').html(s);
+		},
+		error: function(){
+			alert('저장 실패');
+		}
+	});
+	
+} 
+
+function getList(){
+	$.ajax({
+		url: 'getList',
+		type: 'get',
+		dataType: 'json',
+		success: function(list){
+			let s;
+			$.each(list, function (idx, ob){
+				'<table>'
+				'<tr>'
+				s += '<tr>''<p>' + ob.name + '</p>'
+				s += '<p>' + ob.age + '</p>'
+				s += '<p>' + ob.phone + '</p>'
+				'</tr>'
+				'</table>'
+			});
+			$('#output3').html(s);
+			},
+		error: function(){
+			alert('저장 실패');
+		}
+	});
+	
+} 
+
+</script>
+<body>
+<h2>[ 객체 보내기 / 받기 ]</h2>
+
+<p>1. 서버로 각각의 Parameter를 전달</p>
+<form id="writeForm1">
+이름 <input type="text" id="name"><br>
+나이 <input type="number" id="age"><br>
+전화 <input type="text" id="phone"><br>
+	<input type="button" id="formButton1" value="저장"><br>
+</form>
+
+<p>2. 서버로 객체 전달</p>
+<form id="writeForm2">
+이름 <input type="text" id="name2"><br>
+나이 <input type="number" id="age2"><br>
+전화 <input type="text" id="phone2"><br>
+	<input type="button" id="formButton2" value="저장"><br>
+</form>
+
+
+<p>3. 서버로 객체 전달</p>
+<form id="writeForm3">
+이름 <input type="text" name="name" id="name"><br>
+나이 <input type="number" name="age" id="age"><br>
+전화 <input type="text" name="phone" id="phone"><br>
+	<input type="button" id="formButton3" value="저장"><br>
+</form>
+
+<p>4. 서버에서 객체를 string으로 받기</p>
+<p><input type="button" id="bt1" value="객체 받기1"></p>
+<div id="output1"></div>
+
+<p>5. 서버에서 객체를 JSON으로 받기</p>
+<p><input type="button" id="bt2" value="객체 받기2"></p>
+<div id="output2"></div>
+
+<p>6. 서버에서 객체를 배열로 받기</p>
+<p><input type="button" id="bt3" value="객체 받기3(배열)"></p>
+<div id="output3"></div>
+
+</body>
+</html>

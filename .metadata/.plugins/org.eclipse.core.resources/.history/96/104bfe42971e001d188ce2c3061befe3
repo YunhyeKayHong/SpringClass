@@ -1,0 +1,9 @@
+package net.softsociety.web.dao;
+
+import net.softsociety.web.domain.Comment;
+
+public interface CommentDAO {
+
+	void insertComment(Comment comment);
+
+}

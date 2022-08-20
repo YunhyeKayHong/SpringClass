@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>comment</title>
+<script th:src="@{/js/jquery-3.6.0.js}"></script>
+<script>
+$(document).ready(function(){
+	//ID가 "bt"인 버튼을 클릭하면 insert함수 실행
+	$('#bt').on("click", insert);
+	
+});
+
+function insert(){
+	//id가 "name", text"인 요소에서 입력한 값을 읽어서
+	let n = $('#name').val();
+	let t = $('#text').val();
+	
+	//서버로 보냄
+	$.ajax({
+		url: 'insert',
+		type: 'post',
+		data:{name: n, text: t},
+		success: function(){
+			
+		},
+		error: function(){
+			alert('잘못된 접근입니다.');
+		}
+		
+	});
+	
+}
+</script>
+</head>
+<body>
+<h2>[ Comment ]</h2>
+<div>
+<form>
+	이름 <input type="text" id="name">
+	내용 <input type="text" id="text">
+	<input type="button" id="bt" value="저장">
+</form>
+</div>
+</body>
+</html>
+
+버튼을 클릭하면 아이디가 네임인 곳에서 , 텍스ㅡㅌ인 곳에서 밸류를 읽어감

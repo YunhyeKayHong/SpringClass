@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>comment</title>
+<script th:src="@{/js/jquery-3.6.0.js}"></script>
+<script>
+$(document).ready(function(){
+	$('#bt').click(insert());
+	
+});
+
+function insert(){
+	
+}
+</script>
+</head>
+<body>
+<h2>[ Comment ]</h2>
+<div>
+<form>
+	이름 <input type="text" id="name">
+	내용 <input type="text" id="text">
+	<input type="button" id="bt" value="저장">
+</form>
+</div>
+</body>
+</html>
+
+버튼을 클릭하면 아이디가 네임인 곳에서 , 텍스ㅡㅌ인 곳에서 밸류를 읽어감

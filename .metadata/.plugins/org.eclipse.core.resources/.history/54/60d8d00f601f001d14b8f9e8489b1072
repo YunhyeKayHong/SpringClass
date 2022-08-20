@@ -1,0 +1,18 @@
+--추천 기능 예제
+create table web recommend(
+	boardnum number primary key,
+	cnt		 number default 0
+);
+insert into web_recommend (boardnum) values (1);
+
+update web_recommned set cnt = cnt+1 where boardnum =1;
+
+--댓글 기능
+CREATE TABLE web_comment(
+	num		number primary key,
+	name 	varchar2(20) not null,
+	text	varchar2(300) not null
+);
+CREATE SEQUENCE web_comment_seq;
+
+INSERT INTO web_comment values (web_comment_seq.nextval, '홍길동', '댓글 내용입니다.');

@@ -1,0 +1,6 @@
+--추천 기능 예제
+create table web recommend(
+	boardnum number primary key,
+	cnt		 number default 0
+);
+insert into web_recommend (boardnum) values (1);

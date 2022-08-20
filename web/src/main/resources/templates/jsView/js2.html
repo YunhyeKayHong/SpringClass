@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+<style>
+a, a:link, a:visited {
+	color : #1d3557;
+	text-decoration : none;
+}
+
+a:hover, a:active {
+	color: #e63946;
+	font-weight: bold;
+	text-decoration : none;
+}
+</style>
+<script>
+let win = null; //전역변수로 선언해두고 값은 어딘가 함수에서 대입
+
+function test1(){
+	win = window.open('','win','width=300, height=200, left=400,top=200');
+}
+function test2(){
+	alert(win);
+	alert(win.closed);
+	
+	win.close();
+}
+function test3(){
+	//널인지 확인, 열려있는지 확인
+	if(win != null && !win.closed){
+	//크기와 위치 변경
+	win.focus();
+	win.resizeTo(500, 500);
+	win.moveBy(0, 300);
+    }
+}
+function test4(){
+	console.log('width=' + screen.width + ', height=' + screen.height); //해상도 출력
+	
+	let w = screen.width * 0.5;
+	let h = screen.height * 0.5;
+	
+	win.focus();
+	win.resizeTo(w, h);
+	
+}
+function test5(){
+	console.log('경로 :' + location.href); //페이지이동할때 대입하는 용도
+	
+	if(confirm('네이버로 이동하시겠습니까?')){
+		location.href = 'http://www.naver.com/';
+	}	
+}
+function test6(){
+	history.go(-1); //뒤로가기	
+
+}
+
+window.onlaod = function test7() {
+		//브라우저 정보에 "Mobile" 포함되어 있으면 다른페이지로 이동, 핸드폰으로 봤을때는 이동, pc로 봤을때는 이동안함
+		let words = [ 'Mobile', 'SAMSUNG', 'iPhone' ];
+
+		for (i = 0; i < words.length; i++) {
+			if (navigator.userAgent.includes(word[i])) {
+				location.href = 'mobile';
+			}
+		}
+	}
+</script>
+</head>
+<body>
+<h2>[ JavaScript 내장 객체]</h2>
+<p><a href="javascript:test1()">window객체 : 창이 열림</a></p>
+<p><a href="javascript:test2()">window객체 : 창이 닫힘</a></p>
+<p><a href="javascript:test3()">window객체 : 창 크기와 위치 변경</a></p>
+<p><a href="javascript:test4()">screen 객체</a></p>
+<p><a href="javascript:test5()">location 객체</a></p>
+<p><a href="javascript:test6()">history 객체</a></p>
+<p><a href="javascript:test7()">navigator 객체</a></p>
+</body>
+</html>

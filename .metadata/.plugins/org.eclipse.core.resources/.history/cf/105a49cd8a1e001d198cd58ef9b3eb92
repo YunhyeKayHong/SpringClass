@@ -1,0 +1,17 @@
+package net.softsociety.web.dao;
+
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public class webDAO {
+
+	public static int updateHits(int boardnum) {
+		return 0;
+	}
+
+	public static int now(int boardnum) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

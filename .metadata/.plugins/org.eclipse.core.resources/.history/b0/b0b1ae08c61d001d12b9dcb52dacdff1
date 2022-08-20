@@ -1,0 +1,65 @@
+package net.softsociety.web.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@RequestMapping("aj")
+@Controller
+public class AjexsController {
+	
+	@GetMapping("aj1")
+	public String aj1() {
+		return "/ajView/aj1";
+	}
+	
+	@ResponseBody
+	@GetMapping("test1")
+	public void test1() {
+		log.debug("Controller의 test1() 실행");
+	}
+	
+	@ResponseBody
+	@PostMapping("test2")
+	public void test2(String str) {
+		log.debug("Controller의 test2() 실행");
+	}
+	
+	@ResponseBody
+	@GetMapping("test3")
+	public String test3() { //리턴값은 상황에 맞게 맞추기
+		String s = "서버에서 보낸 문자열";
+		return s;
+	}
+	
+	@ResponseBody
+	@PostMapping("test4")
+	public String test4(String str) {
+		str = str.toUpperCase();
+		return str;
+	}
+	
+	@ResponseBody
+	@PostMapping("test5")
+	public String test5(String str) {
+		str = str.toUpperCase();
+		return str;
+	}
+	
+	@GetMapping("aj2")
+	public String aj2() {
+		return "/ajView/aj2";
+	}
+	
+	@ResponseBody
+	@PostMapping("insert1")
+	public void insert1(String name, int age, String phone) {
+		log.debug("name:{}, age:{}, phone:{}", name, age, phone);
+	}
+		
+}

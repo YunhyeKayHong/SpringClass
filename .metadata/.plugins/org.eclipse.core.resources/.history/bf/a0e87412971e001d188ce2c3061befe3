@@ -1,0 +1,9 @@
+package net.softsociety.web.controller;
+
+import net.softsociety.web.domain.Comment;
+
+public interface CommentDAO {
+
+	void insertComment(Comment comment);
+
+}

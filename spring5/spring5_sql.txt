@@ -1,0 +1,84 @@
+DROP TABLE spring5_member;
+DROP TABLE spring5_board;
+DROP TABLE spring5_reply;
+DROP SEQUENCE spring5_board_seq;
+DROP SEQUENCE spring5_reply_seq;
+
+delete from spring5_board where boardnum = 4;
+
+
+CREATE TABLE spring5_member(
+	memberid    VARCHAR2(20) PRIMARY KEY,	 --로그인 시, 사용자를 식별하는 ID, 유일한 값. 
+	memberpw    VARCHAR2(100) NOT NULL,     --로그인 시, 비밀번호, 문자열 100byte(암호화되서 들어가므로 길어짐, 역산해서 알아낼 수 없도록 단방향 암호화)
+	membername  VARCHAR2(30) NOT NULL,             --사용자 이름
+	email       VARCHAR2(100), 
+    phone       VARCHAR2(50), 
+    address     VARCHAR2(200), 
+	enabled     NUMBER(1) DEFAULT 1 CHECK (enabled IN(1,0)),                                    --계정 상태(사용자 인증용), 숫자로 1자리, 1은 사용가능, 0은 사용 불가능
+	rolename    VARCHAR2(30) DEFAULT 'ROLE_USER' CHECK(rolename IN('ROLE_USER', 'ROLE_ADMIN')) --사용자 종류, 기본값은 'ROLE_USER', 종류: ROLE_USER, ROLE_ADMIN 
+);
+
+INSERT INTO spring5_member
+(memberid, memberpw, membername, email, phone, address, enabled, rolename)
+values
+('hongkong', '0000', '콩이', 'kong@naver.com', '010-0000-0000', '인천시 부평구', 0, 'ROLE_ADMIN');
+
+--게시판 글
+CREATE TABLE spring5_board(
+	boardnum 	NUMBER PRIMARY KEY, 		--글번호(중복되지 않음, 저장될때마다 늘어나는 숫자(정렬가능하도록), 프라이머리키)
+	memberid 	VARCHAR2(20) REFERENCES spring5_member(memberid),	--작성자id
+	title 		VARCHAR2(300) NOT NULL,		--제목
+	contents 	VARCHAR2(4000)	NOT NULL,	--내용
+	inputdate 	DATE DEFAULT SYSDATE,		--작성일
+	hits 		NUMBER DEFAULT 0,			--조회수
+	originalfile 	VARCHAR2(300),	--첨부파일의 원래 이름(사진.jpg) ->20220727.jpg로 특정 규칙을 통해서 이름을 임의로 변경, 이름은 보관해뒀다가 줄 때 원래이름으로 줌
+	savedfile		VARCHAR2(200)	--첨부파일이 서버에 저장된 이름 ->겹치지 않는 긴 숫자 이름으로 저장
+);
+
+
+--게시글 번호에 사용할 시퀀스
+CREATE SEQUENCE spring5_board_seq;
+
+--저장 예
+insert into spring5_board(boardnum, memberid, title, contents)
+	values(spring5_board_seq.nextval, 'kongkong', '콩이네 텃밭에 놀러오세요', '인천시 계양구에 위치한 콩이네 텃밭에 놀러오세요. 지금 토마토가 제철이라 아주 맛있답니다.');
+
+insert into spring5_board(boardnum, memberid, title, contents)
+	values(spring5_board_seq.nextval, 'mungi', '뭉이네 카페 신장 개업!', 'msgr라는 특별한 메뉴가 있는 뭉이네 카페입니다. 작은 발로 정성스럽게 만들어드려요.');
+
+insert into spring5_board(boardnum, memberid, title, contents)
+	values(spring5_board_seq.nextval, 'tori', '강아지 유모차의 좋은 점(aka.벤츠)', '여름이라 아스팔드 발 따갑지 않냐 다들 유모차 타라');
+    
+insert into spring5_board(boardnum, memberid, title, contents)
+	values(spring5_board_seq.nextval, 'moogi', '나는 사실 고양이로소이다', '속앗지 이 귀여운 강아지들아');
+
+	
+--게시판의 댓글
+CREATE TABLE spring5_reply(
+	replynum	number	primary key, --리플 번호
+	boardnum	number	references spring5_board(boardnum) on delete cascade, --본문 글번호
+	memberid	varchar2(20) references spring5_member(memberid),	--작성자 id
+	replytext	varchar2(200) not null, --내용
+	inputdate	date default sysdate	--작성일
+);
+
+--댓글 번호에 사용할 시퀀스
+CREATE SEQUENCE spring5_reply_seq;
+
+--저장 예
+insert into spring5_reply(replynum, boardnum, memberid, replytext)
+	values(spring5_reply_seq.nextval, 5, 'newnew', '토마토 맛있겠다~');
+insert into spring5_reply(replynum, boardnum, memberid, replytext)
+	values(spring5_reply_seq.nextval, 2, 'tori', 'msgr가 뭐야?');    
+insert into spring5_reply(replynum, boardnum, memberid, replytext)
+	values(spring5_reply_seq.nextval, 2, 'mungi', '엄청 맛있는 미숫가루에요 하하하');
+insert into spring5_reply(replynum, boardnum, memberid, replytext)
+	values(spring5_reply_seq.nextval, 3, 'mungi', '~~~~~~~무플 방지 위원회~~~~~~~');    
+insert into spring5_reply(replynum, boardnum, memberid, replytext)
+	values(spring5_reply_seq.nextval, 6, 'kongkong', '헉..');    
+    
+    
+COMMIT;
+SELECT * from spring5_member;
+SELECT * from spring5_board;
+SELECT * from spring5_reply;

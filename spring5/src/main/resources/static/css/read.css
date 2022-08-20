@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+div.container{
+	/* 인라인 태그에는 width를 줄 수 없다. 주로 블록태그에 준다. */
+	width: 800px; /* block 태그*/
+	margin: 0 auto; /*네개 쓰면 상 우 하 좌의 순서(시계방향)*/
+	text-align: center;
+}
+
+div.container>h1 {
+	text-align: center;
+	color: #1d3557;
+	margin-bottom: 0px;
+	font-style: oblique;
+}
+
+
+table {
+	width: 800px;
+	font-size: small;
+	border-collapse: collapse;
+	background-color: #faf9f9;
+	margin : 30px 0 15px 0;
+	
+}
+
+.re-01{
+	width : 370px;
+}
+
+.re-02{
+	width : 100px;
+}
+
+.re-03{
+	width : 130px;
+}
+
+tr, td, th {
+	border: 1px solid white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+
+th {
+	width: 100px;
+	background-color: #1d3557;
+	color: white;
+}
+
+td {
+		text-align: left;
+		padding : 15px;
+}
+
+P {
+	width: 100px;
+	display: inline-block;
+	margin-right: 10px;
+	
+}
+
+div.btn{
+		text-align: center;
+		padding-right : 10px;
+		margin-bottom : 10px;
+}
+input[type="text"]{
+    width: 550px;
+    height: 30px;
+}
+
+
+input[type="button"],input[type="submit"]{
+	background-color: #f07167;
+	color: white;
+	padding: 0.40rem 2rem;
+	font-size: 0.85rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 10rem;
+	margin : 1px;
+	
+}
+
+a:link { 
+	background-color: #f07167;
+	color: white;     
+     text-align: center;
+     text-decoration: none;
+   	padding: 0.40rem 2rem;
+	font-size: 0.85rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 10rem;
+	margin : 1px;
+ } 
+a:hover { 
+	background-color: #ee584d;
+	color: white;     
+     text-align: center;
+     text-decoration: none;
+   	padding: 0.40rem 2rem;
+	font-size: 0.85rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 10rem;
+	margin : 1px;
+} 

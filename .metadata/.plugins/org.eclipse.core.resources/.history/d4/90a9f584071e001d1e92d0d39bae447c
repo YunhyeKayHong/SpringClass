@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.scit.bluemarble.dao.bluemarbleDAO">
+	<!-- 한 플레이어의 정보 조회 -->
+	<select id="selectOnePlayer" parameterType="int" resultType="Player">
+		SELECT * FROM BM_PLAYER_STATUS WHERE PLAYERID = #{playerid}
+	</select>
+	
+	<!-- 모든 플레이어의 정보 조회 -->
+	<select id="selectAllPlayer" resultType="Player">
+		SELECT * FROM BM_PLAYER_STATUS
+	</select>
+
+	<!-- 플레이어 말 이동 -->
+	<update id="moveOne" parameterType="integer">
+		UPDATE 
+			BM_PLAYER_STATUS
+		SET 
+			location = location + rollTheDice
+
+	</update>	
+	
+</mapper>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http//thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>js1</title>
+
+<script>
+	window.onload = function() {
+		let bt1 = document.getElementById('bt1');
+		bt1.onclick = test1;
+	}
+	
+	function test1() {
+		alert("test1 실행");
+	}
+	
+	function test2() {
+		var a = 1; //재정의 가능
+		let b = 2;
+		const c = 3; //변수앞에 final붙인 것과 같으므로 값을 변경할 수 없음
+		
+/* 		var a = "abc";
+		let b = "def";
+		const c = "ggg"; */
+		
+		a = "abc";
+		b = "asdf";
+//		c = "fdsa";
+		
+		console.log('a= ' + a);
+		console.log('b= ' + b);
+		console.log('c= ' + c);
+		
+		a = 1;
+		b = "10";
+		console.log(typeof(a));
+		console.log(typeof(b));
+		console.log(isNaN(a));
+		console.log(isNaN(b));
+		
+		let d = prompt("숫자를 입력하세요.");
+		//뭘 입력해도 String으로 리턴 
+		console.log(typeof(d) + ',' + d);
+		
+		let e = confirm("질문 내용?");
+		//True, false로 리턴
+		console.log(typeof(e) + ',' + e);
+		
+		//String타입으로 받은 d를 연산할 수 있게 하기 위해서는 How? 
+		console.log(d + 1);
+		console.log(parseInt(d) + 1);
+		console.log(Number(d) + 1);
+		
+		
+	}
+
+	function test3() {
+		let t1 = document.getElementById('text1'); //정확히 그 대상의 종류가 뭔지 확인 ex.input객체
+		let t2 = document.getElementById('text2');
+		let t3 = document.getElementById('text3');
+		let op = document.getElementById('op');
+
+		console.log(op.value);
+		console.log(op.selectedIndex);
+
+		//첫번째 입력란에 숫자를 입력했는지
+		//두번째 입력란에 숫자를 입력했는지
+        if(isNaN(t1.value) || t1.value.length == 0){
+            alert("값을 숫자를 입력해주세요.")
+            t1.focus();
+            t1.select();
+            return;
+        }
+        if(isNaN(t2.value) || t2.value.length == 0){
+            alert("숫자를 입력해주세요.")
+            t1.focus();
+            t1.select();
+            return;
+        }
+        //입력한 문자열을 숫자로 변환
+		let res = 0;
+		let num1 = parseInt(t1.value);
+        let num2 = parseInt(t2.value);
+        
+	switch (op.value) {
+	case "+":
+		 res = num1 + num2; 	break;
+	case "-":
+		 res = num1 - num2;		break;
+	case "*":
+		 res = num1 * num2;		break;
+	case "/":
+		if(num2 == 0){
+			alert('0으로 나눌 수 없습니다.');
+			return;
+		}
+		res = num1 / num2;		break;
+	}
+	t3.value = res;
+	
+	}
+	
+	function focusIn(ob){
+        ob.select();
+	}
+</script>
+</head>
+<body>
+
+	<h2>[ JavaScript 기본 문법]</h2>
+
+	<p><a href="javascript:test1()">a태그로 함수 호출</a></p>
+	<p><input type="button" value="onclick속성으로 함수 호출" onclick="test1()"></p>
+	<p><input type="button" value="onload에서 이벤트 연결" id="bt1"></p>
+
+	<p><a href="javascript:test2()">변수와 자료형</a></p>
+
+	<p><a href="javascript:test3()">계산</a></p>
+	<p><form>
+		<input type="text" id="text1" value="0" onfocus="focusIn(this)">  
+		<select id="op" onchange="test3()">			
+				<option id = "plus">+</option>
+				<option id = "minus">-</option>
+				<option id = "multiply" >*</option>
+				<option id = "divide" >/</option>
+		</select> 
+		<input type="text" id="text2" value="0" onfocus="focusIn(this)">
+		=
+		<input type="text" id="text3" value="0" readonly="readonly">
+		<input type="button" value="계산" onclick="test3()">
+		<input type="reset" value="초기화">
+	</form>
+	
+</body>
+</html>

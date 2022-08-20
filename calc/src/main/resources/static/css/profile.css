@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+h2{
+	text-align: center;
+	font-style : oblique;
+}
+div.container{
+            width: 415px;
+            height: 100px; 
+            background-color: #ffd500;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 0ch;
+}

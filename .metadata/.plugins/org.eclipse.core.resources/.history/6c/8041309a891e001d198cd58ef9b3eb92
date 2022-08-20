@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>recommend</title>
+<script th:src="@{/js/jquery-3.6.0.js}"></script>
+<script>
+$(document).ready(function(){
+	
+	
+});
+</script>
+</head>
+<body>
+<h2>[ 추천 기능 ]</h2>
+<div>
+	<input type="button" id="bt" boardnum="1" value="추천">
+	<span id="cnt">0</span>
+</div>
+</body>
+</html>

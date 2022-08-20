@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>여기는 aj1 aj1</title>
+</head>
+<script th:src="@{/js/jquery-3.6.0.js}"></script>
+<script>
+function test1(){
+	console.log('test1 실행');
+	
+	//서버로 요청보내기
+	/* 중괄호로 둘러싸서 객체로 만들어서 하나의 객체로 전달 
+		url : 보내는 경로
+		type : get방식, post방식 등등 -> Controller에서 받아줘야함
+		success : 성공하고 돌아왔을때 실행하는 함수
+		error : 실패하고 돌아왔을때 실행하는 함수
+	*/
+	
+	
+	$.ajax({
+		url:'test1',
+		type: 'get',
+		success: function(){
+			console.log('ajax 실행 성공');
+		},
+		error:  function(e){
+			console.log('ajax 실행 실패');
+			console.log(JSON.stringify(e)); //객체의 내용을 문자열화시켜주는 함수
+			console.log(e.status);
+			
+		}
+	}); 
+	
+}
+
+function test2(){
+	$.ajax({
+		url: 'test2',
+		type: 'post',
+		data: {str: '클라이언트에서 보냄'},
+		success: function(){alert('성공');},
+		error: function(e){alery(JSON.stringify(e));}
+		
+	});
+}
+
+function test3(){
+	$.ajax({
+		url: 'test3',
+		type: 'get',
+		dataType: 'text', //'json'
+		success: function(res){ //돌아온 값 성공하고 돌아오는 함수의 매개변수로 돌아옴(아무이름가능)
+			alert(res);
+			$('#output').html(res);
+		},
+		error: function(){
+			alert(JSON.stringify(e));
+		}
+		
+	});
+}
+
+function test4(){
+	$.ajax({
+		url: 'test4',
+		type: 'post',
+		data: {str: $('#word1').text()},
+		success: function(res){
+			$('#word2').html(res);
+			},
+		error: function(e){alery(JSON.stringify(e));}
+		
+	});
+}
+
+function test5(){
+	$.ajax({
+		url : 'test5',
+		type : 'post',
+		data : {str: $('#word3').text()},
+		success : function(res){
+			$('#word4').html(res);
+		},
+		error : function(){console.log('연결실패')}
+		
+	});
+}
+
+
+</script>
+<body>
+<h2>[ Ajax 요청과 응답 ]</h2>
+<p><a href="javascript:test1()">서버로 Ajax 요청 보내기</a></p>
+<p><a href="javascript:test2()">서버로 문자열 보내기</a></p>
+<p><a href="javascript:test3()">서버에서 문자열 받기</a></p>
+<div id="output"></div>
+
+<p><a href="javascript:test4()">예제</a></p>
+<div>
+	<span id="word1">aaaa</span>
+	<span id="word2"></span>
+</div>
+<p><a href="javascript:test5()">연습</a></p>
+<div>
+	<span id="word3">gift</span>
+	<span id="word4"></span>
+</div>
+</body>
+</html>

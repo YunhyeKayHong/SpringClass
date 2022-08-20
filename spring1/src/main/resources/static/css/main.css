@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+h2{
+	text-align: center;
+	font-style : oblique;
+}
+div.container{
+            width: 1000px;
+            height: 100vh; 
+            background-color: olive;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 0ch;
+}
+ a, a:link, a:visited{ 
+            background-color: antiquewhite;
+            width: 200px;
+            height: 40px;
+            padding: 20px 0 0 0;
+            font-size: 1rem;
+            font-style: oblique;
+            display: inline-block;
+        }
+        a:hover, a:active{
+            background-color: tan;
+            color: brown;
+            font-weight: bold;
+        }
+
+	

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<!-- <script src="../js/jquery-3.6.0.js"></script> -->
+<script th:src="@{/js/jquery-3.6.0.slim.js}"></script>
+
+<script>
+$(document).ready(function() {
+	//전체선택자
+	$('*').css('color', 'blue');
+	
+	//태그 선택자
+	$('p').css('color', 'green');
+	
+	//ID 선택자 - # 나오면 한 곳
+	$('#text1').css('color', 'pink');
+	
+	//클래스 선택자
+	$('.text2').css('color', 'red');
+	
+	//그룹 선택자 - 여러개를 한꺼번에 잡아서 선택
+	$('th, td').css('color', 'yellow');
+	
+	//종석 선택자 - p태그 중에서 클래스 명이 text2인것
+	$('p.text2').css('color', 'LightBlue');
+	
+	//하위 선택자 - 특정 태그 안쪽에 있는 것만 찾음(손주와 증손주도 포함)
+	$('div p.text3').css('color', 'Lavender');
+	
+	//자식 요소 선택자 - 바로 밑에꺼만 설정가능
+	$('div>p').css('color', 'tan');
+	
+	//상위 요소 선택자	
+	$( 'p' ).parent( 'div' ).css( 'background-color', 'green' );
+	
+	//동생(다음)요소 선택자
+	$('text4').nextAll().css('background-color', 'tan');
+	
+	//속성 선택자
+	$('input[type=password]').css('background-color', 'yellow');
+	$('input[checked]').css('background-color', 'Indigo');
+
+	
+});
+</script>
+<body>
+<h2>[ jQuery 기본 문법, 선택자 ]</h2>
+<h3 class="text2"> 여기는 h3의 class는 text2</h3>
+<p>P태그를 이용한 텍스트</p>
+<p>P태그를 이용한 텍스트</p>
+<p id="text1">P태그를 이용한 텍스트</p>
+<p class="text2">P태그를 이용한 텍스트</p>
+<p class="text2 text3">P태그를 이용한 텍스트</p>
+
+<div>
+	<p class="text4">div내의 p태그</p>
+	<p class="text3">div내의 p태그</p>
+</div>
+<form>
+	<input type="text">
+	<input type="password">
+	<input type="submit" value="확인">
+</form>
+</body>
+</html>

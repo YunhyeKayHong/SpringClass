@@ -1,0 +1,12 @@
+DROP TABLE GUESTBOOK;
+DROP SEQUENCE NUM;
+
+CREATE SEQUENCE NUM;
+
+CREATE TABLE GUESTBOOK(
+num number,                       --시퀀스 이용하여 번호 부여
+name varchar2(20),               --이름
+password varchar2(20),           --비밀번호, 삭제할때 활인
+message varchar2(1000),          --글내용
+inputdate date default sysdate  -- 글 작성 시간, 오라클 서버의 시간정보 자동입력
+);

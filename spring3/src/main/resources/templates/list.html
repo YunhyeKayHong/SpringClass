@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http//thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>강아지 유치원 전체 명단</title>
+<link rel="stylesheet" th:href="@{/css/list.css}">
+<script>
+/*	let a = [[${data1}]];
+	alert(a);
+	let b = '[[${data2}]]';
+	alert(b); */
+	
+function deletePerson(name){		
+		if(confirm('정말 삭제하시겠습니까?')){
+			location.href = 'delete?name=' + name;
+		}
+	}
+function updatePerson(name){
+	location.href = 'update?name=' + name;
+
+	}
+	
+</script>
+</head>
+<body>
+<div id=content>
+	<h2>강아지 유치원 전체 명단</h2>
+	<table>
+		<tr>
+			<th>이름</th>
+			<th>나이</th>
+			<th>수정</th>
+			<th>삭제</th>
+		</tr>
+		<tr th:each="person: ${list}">
+			<td th:text="${person.name}">디자이너와의 협업을 위해 (이름자리)라고 표시하기 어쩌피 출력안됨</td>
+			<td th:text="${person.age}"></td>
+			<td><input type="button" value="수정" th:uname="${person.name}" th:onclick="updatePerson(this.getAttribute('uname'))">
+			</td>
+			<td>
+				<input type="button" value="삭제" th:pname="${person.name}" th:onclick="deletePerson(this.getAttribute('pname'))">
+				<a th:href="|javascript:location.href='delete?name=${person.name}'|">삭제</a> <!-- |는 다 이어 붙이기 기능 -->
+			</td>
+		</tr>
+	</table>
+</div>
+</body>
+</html>

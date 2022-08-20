@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http//thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/list.css">
+</head>
+<script>
+	function pagingFormSubmit(currentPage) {
+		let form = document.getElementById('pagingForm');
+		let page = document.getElementById('page'); //페이지 번호가 들어갈 hidden 요소
+		page.value = currentPage; //전달받은 페이지 번호를 폼에 저장
+		form.submit(); //폼 전송
+	}
+</script>
+<body>
+	<div class="container">
+		<h1>
+			<a th:href="@{/board/list}">[ B o a r d ]</a>
+		</h1>
+		<div class="num">
+			Total : <span th:text="${navi.totalRecordsCount}"></span> &nbsp;
+			<span th:text="|${navi.currentPage}/${navi.totalPageCount}|"></span> page 
+		</div>
+		<div class="btn">
+			<!-- 로그인한 사람만 글쓰기 폼으로 -->
+			<p sec:authorize="isAuthenticated()">
+				<input type="button" value="글쓰기"
+					th:onclick="|location.href='@{/board/write}'|">
+			</p>
+			<!-- 누구나 메인화면으로 -->
+			<input type="button" value="홈으로" th:onclick="|location.href='@{/}'|">
+		</div>
+		<!-- 이하 글 목록 출력 영역 -->
+		<table>
+			<tr>
+				<th class="bl-th-1">No.</th>
+				<th class="bl-th-2">제목</th>
+				<th class="bl-th-3">작성자</th>
+				<th class="bl-th-4">조회수</th>
+				<th class="bl-th-5">작성일</th>
+			</tr>
+			<tr th:each="bl:${blist}" class="list">
+				<td th:text="${bl.boardnum}"></td>
+				<td><a th:text="${bl.title}"
+					th:href="@{/board/read(boardnum=${bl.boardnum})}"></a></td>
+				<td th:text="${bl.memberid}"></td>
+				<td th:text="${bl.hits}"></td>
+				<td th:text="${bl.inputdate}"></td>
+			</tr>
+		</table>
+	</div>
+	<!-- 페이지 이동 링크 -->
+	<div class="navigator">
+		<div>
+	<a th:href="|javascript:pagingFormSubmit(${navi.currentPage - navi.pagePerGroup})|">◁◁</a>
+	<a th:href="|javascript:pagingFormSubmit(${navi.currentPage - 1})|">◀</a> 
+
+	<span th:each="counter : ${#numbers.sequence(navi.startPageGroup, navi.endPageGroup)}"> 
+		<th:block th:if="${counter == navi.currentPage}"><b></th:block>
+			<a th:text="${counter}" th:href="|javascript:pagingFormSubmit(${counter})|"></a>&nbsp;
+		<th:block th:if="${counter == navi.currentPage}"></b></th:block>
+	</span>
+	
+	<a th:href="|javascript:pagingFormSubmit(${navi.currentPage + 1})|">▶</a> 
+	<a th:href="|javascript:pagingFormSubmit(${navi.currentPage + navi.pagePerGroup})|">▷▷</a>
+	<br><br>
+		</div>
+	</div>
+
+
+	<div class="container2">
+		<form id="pagingForm" th:action="@{/board/list}" method="get">
+			<input type="hidden" name="page" id="page"> 
+			<select	name="type" id="type">
+				<option value="title" th:selected="${type} == 'title'">제목</option>
+				<option value="contents" th:selected="${contents} == 'contents'">내용</option>
+				<option value="memberid" th:selected="${memberid} == 'memberid'">작성자</option>
+				<option value="all" th:selected="${all} == 'all'">전체</option>
+			</select> <input type="text" name="searchWord" th:value="${searchWord}">
+			<input type="button" onclick="pagingFormSubmit(1)" value="검색">
+			<!-- 검사 결과중에 1페이지 -->
+		</form>
+	</div>
+</body>
+</html>

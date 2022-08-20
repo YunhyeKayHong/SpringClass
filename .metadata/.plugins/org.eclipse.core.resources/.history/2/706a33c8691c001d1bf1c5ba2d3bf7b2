@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>home.html</title>
+    <link rel="stylesheet" th:href="@{/css/board.css}">
+
+<script>
+function test(){
+	location.href='/bluemarble/board';	
+}
+
+</script>
+</head>
+<body>
+<div class="wrapper">
+	<button type="button" id="img_btn" onclick="test()">BLUEMARBLE START!
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</div>
+</body>
+</html>

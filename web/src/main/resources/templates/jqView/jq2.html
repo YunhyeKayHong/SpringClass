@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>여기는 jq2 jq2</title>
+<script th:src="@{/js/jquery-3.6.0.slim.js}"></script>
+<script>
+$(document).ready(function() {
+	$('#bt1').on('click', button1Click); //on(이벤트 이름, 함수) ex. click, drag, keyup등등 / 함수에 괄호 치지 않도록 주의
+	$('#bt2').on('click', button1Off); //버튼2 누르면 버튼 1의 기능이 사라짐
+	$('#bt3').on('click', button1Trigger);
+	$('#img1').on('mouseenter', img1Enter);
+	$('#img2').on('mouseleave', img2Leave);
+	$('#text1').on('keyup', text1Keyup);
+	
+});
+
+function button1Click(){
+	alert('버튼1 클릭함');
+}
+function button1Off(){
+	$('#bt1').off('click', button1Click);
+//$('#bt1').off('click');
+//$('#bt1').off();
+}
+
+function button1Trigger(){
+	$('#bt1').trigger('click');
+}
+
+function img1Enter(){
+	alert('이미지의 mouseEnter이벤트');
+}
+
+function img2Leave(){
+	alert('이미지의 mouseLeave이벤트');
+}
+
+function text1Keyup(){
+	alert('텍스트 필드의 keyup 이벤트');
+}
+</script>
+
+</head>
+<body>
+<h2> [ jQuery 이벤트] </h2>
+<pre>
+	on(). off(). trigger()
+</pre>
+<p><input type="button" id="bt1" value="버튼1"></p>
+<p><input type="button" id="bt2" value="버튼1의 이벤트 취소"></p>
+<p><input type="button" id="bt3" value="버튼1의 이벤트 강제 발생"></p>
+
+<p><img th:src="@{/image/heart.png}" id="img1"></p>
+<p><img th:src="@{/image/tegami.png}" id="img2"></p>
+
+<p><input type="text" id="text1"></p>
+</body>
+</html>

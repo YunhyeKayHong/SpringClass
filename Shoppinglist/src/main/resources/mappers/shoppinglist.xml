@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="net.softsociety.shoppinglist.dao.ShoppinglistDAO">
+	<select id="selectItemlist" resultType="Itemlist">
+		select * from itemlist
+	</select>
+	<select id="selectOne" resultType="Itemlist">
+		select * from itemlist
+		where p_num=#{p_num}
+	</select>
+	<insert id="addToCart" parameterType="Orderlist">
+		insert into orderlist
+		(id, name, address, p_name, p_amount, p_price, p_num)
+		values
+		('shopping123', '홍길동', '서울시 용산구',#{p_name}, #{p_amount}, #{p_price}, #{p_num})
+	</insert>
+	<select id="selectAll" resultType="Orderlist">
+		select * from orderlist	
+	</select>
+	<delete id="deleteOrderlist" parameterType="integer">
+	delete from orderlist where p_num=#{num}
+	</delete>
+</mapper>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/signup.css">
+<script>
+
+function validation(){
+	let id = document.getElementById('memberid'); 
+	let pw1 = document.getElementById('memberpw1'); 
+	let pw2 = document.getElementById('memberpw2'); 
+	let name = document.getElementById('membername'); 
+	
+	if(pw1.value != pw2.value){
+		alert('비밀번호를 정확하게 입력해주세요.');
+				return false;		
+	}
+	
+	if(pw1.value!= '' && (pw1.value.length < 3 || pw1.value.length > 10)){
+		alert("비밀번호는 3~10자로 입력하세요.");
+		return false;		
+		
+	}
+	
+	if(name.value.length == 0){
+		alert("이름은 필수 입력 항목입니다.");
+		return false;		
+		
+	}
+	return true;
+	
+
+		
+	}
+</script>
+</head>
+<body>
+    <div class="content">
+        <h1>Please fill out your new Info!</h1> 
+        	<form id="mypage" action="mypage"  method="post" onsubmit="return validation();">           
+            <table>
+                <tr>
+                    <th><label for="memberpw1">비밀번호</label></th>
+                    <td>
+                        <input id="memberpw1" type="password" name="memberpw" placeholder="비밀번호를 3~10사이로 입력해주세요 ">
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="memberpw2">비밀번호 확인</label></th>
+                    <td>
+                        <input id="memberpw2" type="password" name="memberpw2" placeholder="비밀번호를 3~10사이로 입력해주세요 ">
+                    </td>
+                </tr>                
+                <tr>
+                    <th><label for="membername">사용자이름</label></th>
+                    <td>
+                        <input id="membername" type="text" name="membername" placeholder="실명을 입력해주세요" th:value="${member.membername}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="email">이메일</label></th>
+                    <td>
+                        <input id="email" type="email" name="email" placeholder="@를 넣어주세요" th:value="${member.email}">
+                    </td>
+                </tr>
+                <tr>
+                    <th>연락처</th>
+                    <td>
+                        <input id="phone" type="tel" name="phone" placeholder="-없이 숫자만 넣어주세요" th:value="${member.phone}">
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="address">주소</label></th>
+                    <td>
+                        <input id="address" type="text" name="address" placeholder="주소를 입력해주세요" th:value="${member.address}">
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <th colspan="2">	
+                        <input type="submit" value="완료" >&nbsp;
+                        <input type="reset" value="취소">&nbsp;
+                    </th>
+                </tr>
+            </table>
+		</form> 
+    </div>
+</body>
+</html>

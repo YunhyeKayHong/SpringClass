@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>recommend</title>
+<script th:src="@{/js/jquery-3.6.0.js}"></script>
+<script>
+$(document).ready(function(){
+	//보툰 쿨락아밴투
+		$('#bt1').click(function(){
+	//에이젝스 함수 호출
+			$.ajax({
+				url:'vote',
+				type:'get',
+				data:{boardnum:$(this).attr('boardnum')},
+				success:function(n){ 
+					$('#cnt').html(n);
+				},
+				error: function(){
+				alert('잘못된 접근입니다.');
+				}				
+				
+			});
+			
+		});
+	
+});
+</script>
+</head>
+<body>
+<h2>[ 게시글 추천 ]</h2>
+<div>
+	<input type="button" id="bt" boardnum="1" value="추천">
+	<span id="cnt">0</span>
+</div>
+</body>
+</html>

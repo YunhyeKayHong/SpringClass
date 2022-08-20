@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http//thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+header {
+	text-align: center;
+	background-color: #1d3557;
+	color: white;
+	font-style: oblique;
+}
+
+div {
+	background-color: #faf9f9;
+		text-align: center;
+}
+
+input[type="submit"], input[type="button"] {
+	background-color: #f07167;
+	color: white;
+	padding: 0.30rem 1.75rem;
+	font-size: 0.85rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 10rem;
+	text-align: center;
+}
+</style>
+<script>
+function validation(){
+	let id = document.getElementById('searchId');
+	if(id.value.length <3 || id.value.length>10){
+		alert("검색할 ID를 3~10자 이내로 입력하세요.");
+		return false;
+	}
+	return true;
+}
+function inputId(id){
+	opener.document.getElementById('memberid').value = id;
+	this.close();
+	
+}
+</script>
+</head>
+<body>
+	<div>
+		<header>
+			<h2>[ I D 중 복 확 인 ]</h2>
+		</header>
+		<br>
+		<section>
+			<form action="idcheck" method="post" onsubmit="return validation()">
+				검색할 ID <input type="text" name="searchId" id="searchId"> <input
+					type="submit" value="검색">
+			</form>
+			<div th:if="${searchId != null}">
+				<div th:if="${result}">
+					<p><span th:text="${searchId}"></span> : 사용할 수 있는 ID입니다.</p>
+					<p><input type="submit" value="ID사용하기"
+						th:searchId="${searchId}" onclick="inputId(this.getAttribute('searchId'))"><p>
+				</div>
+				<div th:if="${not result}">
+					<p> : 이미 사용중인 ID입니다.</p>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+</html>

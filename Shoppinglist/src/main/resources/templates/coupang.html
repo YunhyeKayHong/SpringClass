@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http//thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Shopping</title>
+<style>
+table th,td{
+border : 1px solid white;
+width : 300px;
+text-align : center;
+}
+th{
+background-color : #ADD8E6;
+}
+div{
+border-radius:2px;
+  box-shadow:2px 2px 2px 2px #e5e5e5;
+}
+</style>
+<script>
+function showDetail(p_num){
+	if(confirm('[ ' + p_num + ' ]번 상품의 정보를 조회하시겠습니까?')){
+		location.href = 'selectOne?p_num=' + p_num;
+	}
+
+}
+</script>
+</head>
+<body>
+<h1>쿠팡</h1>
+<div>
+	<table>
+		<tr>
+			<th>제품번호</th>
+			<th>이름</th>
+			<th>남은 수령</th>
+			<th>가격</th>
+			<th>주문</th>
+		</tr>
+		<tr th:each="item: ${ilist}">
+			<td th:text="${item.p_num}">제품번호</td>
+			<td th:text="${item.p_name}">이름</td>
+			<td th:text="|${item.p_amount}개|">남은 수량</td>
+			<td th:text="|${item.p_price}원|">가격</td>
+			<td><input type="button" value="상세보기" 
+			th:p_num="${item.p_num}"
+			th:onclick="showDetail(this.getAttribute('p_num'))">
+			</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

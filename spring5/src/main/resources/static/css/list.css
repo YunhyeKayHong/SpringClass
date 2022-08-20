@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+div.container{
+	/* 인라인 태그에는 width를 줄 수 없다. 주로 블록태그에 준다. */
+	width: 800px; /* block 태그*/
+	margin: 0 auto; /*네개 쓰면 상 우 하 좌의 순서(시계방향)*/
+	text-align: center;
+}
+
+div.num{
+	font-style: oblique;
+	font-size: small;
+	text-align: left;
+	padding-left : 10px;
+	display :  inline-block;
+	margin-right : 200px;
+	
+	
+}
+div.container>h1 {
+	text-align: center;
+	color: #1d3557;
+	margin-bottom: 0px;
+	font-style: oblique;
+}
+div.btn{
+		display :  inline-block;
+		text-align: right;
+		padding-right : 10px;
+		margin : 10px;
+		margin-bottom : 2px;
+		margin-left : 200px;
+}
+
+table {
+	width: 800px;
+	font-size: small;
+	border: 0.5px solid #0096c7;
+	border-collapse: collapse;
+	background-color: #faf9f9;
+}
+
+tr, td, th {
+	border: 1px solid white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.bl-th-1 {
+    width: 40px;
+  }
+.bl-th-2 {
+    width: 700px;
+  }
+.bl-th-4 {
+    width: 70px;
+  }
+th {
+	width: 200px;
+	background-color: #1d3557;
+	color: white;
+}
+
+td {
+	padding-left: 10px;
+}
+
+P {
+	width: 100px;
+	display: inline-block;
+	margin-right: 10px;
+	
+}
+
+
+input[type="button"] {
+	background-color: #f07167;
+	color: white;
+	padding: 0.40rem 2rem;
+	font-size: 0.85rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 10rem;
+}
+
+
+a, a:link, a:visited {
+	color : #1d3557;
+	text-decoration : none;
+}
+
+a:hover, a:active {
+	color: #e63946;
+	font-weight: bold;
+	text-decoration : none;
+}
+
+div.container2{
+	/* 인라인 태그에는 width를 줄 수 없다. 주로 블록태그에 준다. */
+	width: 800px; /* block 태그*/
+	margin: 20px auto; /*네개 쓰면 상 우 하 좌의 순서(시계방향)*/
+	text-align: center;
+}
+select { 		
+	color : #1d3557;
+	height : 30px;
+	  margin: 0;
+
+	}
+input[type="text"] {
+		height : 25px
+}
+
+div.navigator{
+	width: 800px; /* block 태그*/
+	margin: 20px auto; /*네개 쓰면 상 우 하 좌의 순서(시계방향)*/
+	text-align: center;
+}

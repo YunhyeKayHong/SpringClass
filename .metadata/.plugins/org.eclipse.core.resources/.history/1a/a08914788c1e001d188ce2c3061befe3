@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.softsociety.web.dao.webDAO">
+	<update id="updateHits" parameterType="int">
+		update 
+			web_recommend 
+		set 
+			cnt = cnt+1 
+		where 
+			boardnum =#{boardnum};
+	</update>
+
+	<select id="now" resultType="int">
+		select * from web_recommend;
+	</select>
+</mapper>

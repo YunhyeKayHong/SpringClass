@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- net.softsociety.spring4.dao패키지의 guestbookDAO인터페이스와 매핑됨 -->
+<mapper namespace="net.softsociety.spring4.dao.GuestbookDAO">
+	<insert id="write" parameterType="Guestbook">
+	insert into guestbook
+	(num, name, password, message) 
+	values
+	(guestbook_seq.nextval, #{name}, #{password}, #{message})
+	</insert>		
+	<select id="selectGuestbook" resultType="Guestbook">
+	select 
+	num, name, password, message, TO_CHAR(inputdate, 'YYYY-MM-DD HH:mi:ss') as inputdate 
+	from guestbook
+	order by inputdate desc
+	</select>
+	<delete id="deleteGuestbook" parameterType="Guestbook">
+	delete from guestbook where num=#{num} and password=#{password}
+	</delete>
+</mapper>  
+  

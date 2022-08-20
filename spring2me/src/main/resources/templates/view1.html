@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>모델1</title>
+<style> 
+	div.container{ 
+			background-color: #f1faee;
+		    width: 600px;
+            height: 300px; 
+            margin: 0 auto;
+            padding : 20px;
+            } 
+</style>
+</head>
+<body>
+	<div class="container">
+		<h2>[Model 사용하기]</h2>
+		<p>[[${string}]]</p>
+		<p>[[${number}]]</p>
+		<p>[[${person}]]</p>
+		<p>[[${number + 1}]]</p>
+		<p>[[${person.name}]]</p>
+		<p>[[${person.phone}]]</p>
+	</div>
+	
+</body>
+</html>

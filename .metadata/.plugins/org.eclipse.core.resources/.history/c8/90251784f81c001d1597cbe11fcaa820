@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script th:src="@{/js/jquery-3.6.0.slim.js}"></script>
+<script>
+$(document).ready(function() {
+	$('#img1').click(test1);
+	$('#img2').click(test2);
+	
+});
+function test1(){
+	$(this).css('width') 		//100px 사이즈 확인
+	let w = $(this).width(); 	//100
+	let h = $(this).height(); 	//100
+	$(this).css('width', w+10);
+	$(this).css('height', h+10);	
+	
+}
+//이미지 파일의 경로
+let path = '[[@{/image/}]]';
+//이미지 파일들 이름
+let array = ['#img2', '#img3', '#img4', '#img5'];
+//현재 표시중인 이미지 파일 인덱스 : 계속 값을 유지하기 위해서 전역변수로 설정
+let index=0;
+
+function test2(){
+	index++;
+	if(idx == array.length){
+		idx =  0;
+	}
+	$(this).attr('src', path+array[index]);		
+		
+}
+</script>
+</head>
+<body>
+<h2>[ 예제 ]</h2>
+
+<p>이미지 크기 변경 : 현재보다 10픽셀 증가</p>
+<p><img th:src="@{/image/heart.png}" id="img1"></p>
+
+<p>이미지 바꾸기 : 준비한 이미지를 교대로 보여준다 </p>
+<p><img th:src="@{/image/jang.jpg}" id="img2"></p>
+<p><img th:src="@{/image/won.jpg}" id="img3"></p>
+<p><img th:src="@{/image/won2.jpg}" id="img4"></p>
+<p><img th:src="@{/image/yung.jpg}" id="img5"></p>
+
+</body>
+</html>

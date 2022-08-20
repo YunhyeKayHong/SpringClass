@@ -1,0 +1,53 @@
+@charset "UTF-8";
+div.content{
+    /* 인라인 태그에는 width를 줄 수 없다. 주로 블록태그에 준다. */
+    width: 800px; /* block 태그*/
+    margin: 0 auto; /*네개 쓰면 상 우 하 좌의 순서(시계방향)*/            
+}
+div.content>h1{
+    /* text-align : text만 해당하는 게 아닌 content를 지정*/
+    text-align: center;
+    background-color: #1d3557;
+    color: white;
+    /*padding은 자신의 요소와 테두리 사이의 간격,
+      margin은 자신과 다른 요소사이의 간격*/
+    padding: 20px 0 20px 0; /*네개 쓰면 상 우 하 좌의 순서(시계방향)*/ 
+    margin-bottom: 0px;
+    	font-style: oblique;
+}
+table{
+    width: 800px;
+    font-size: small;
+    border: 0.5px solid #0096c7;
+    border-collapse: collapse;
+    background-color : #faf9f9;
+}
+tr, td, th{
+    border: 1px solid white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+th{
+    width: 200px;
+}
+td{
+    padding-left: 10px;
+}
+/* width와 height는 inline요소에는 적용되지 않지만...*/
+input[type="text"], input[type="email"], input[type="password"],input[type="tel"]{
+    width: 400px;
+    height: 20px;
+}
+input[type="button"],input[type="submit"],input[type="reset"]{
+	background-color : #f07167;
+	color : white;
+	padding: 0.40rem 2rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10rem;
+    text-align : center;
+
+    
+}

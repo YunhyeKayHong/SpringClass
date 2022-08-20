@@ -1,0 +1,15 @@
+package net.softsociety.web.dao;
+
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface webDAO {
+
+
+	public int updateHits(int boardnum);
+
+	public int now(int boardnum) ;
+}
+
+
+//DAO는 class가 아닌 인터페이스로 만들것 8ㅅ8

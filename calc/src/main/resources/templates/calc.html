@@ -1,0 +1,35 @@
+<!-- 메인 화면 뷰 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>간단한 계산기 프로그램</title>
+<link rel="stylesheet" href="css/main.css">
+<script src="js/test.js"></script>
+</head>
+<body>
+	<h2>[ 계산기 프로그램 ]</h2>
+	<form action="calc" method="post" onsubmit="return func()">
+		<div class="container">
+			<table border="1">
+				<tr>
+					<td><input type="text" name="num1" id="num1" placeholder="숫자를 입력하세요"></td>
+					<td><select id="calc" name="calc">
+							<option value="+">+</option>
+							<option value="-">-</option>
+							<option value="*">*</option>
+							<option value="/">/</option>
+					</select></td>
+					<td><input type="text" name="num2" id="num2" placeholder="숫자를 입력하세요"></td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<input type="submit" value="계산">&nbsp;
+						<input type="reset" value="초기화">&nbsp;
+					</td>
+				</tr>
+			</table>
+		</div>
+	</form>
+</body>
+</html>

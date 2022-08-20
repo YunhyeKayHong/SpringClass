@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.softsociety.spring5.dao.BoardDAO">
+	<!-- 게시글 등록 -->
+	<insert id="writeBoard" parameterType="Board">
+		INSERT INTO
+			spring5_board
+			(
+				boardnum
+				, memberid
+				, title
+				, contents
+				<if test="originalfile != null and savedfile !=null">
+				, originalfile
+				, savedfile
+				</if>
+			)
+			values
+			(
+				spring5_board_seq.nextval
+				, #{memberid}
+				, #{title}
+				, #{contents}
+				<if test="originalfile != null and savedfile !=null">
+				, #{originalfile}
+				, #{savedfile}
+				</if>
+			)
+	</insert>
+	
+	<!-- 글 개수 -->
+		<select id="count" parameterType="map" resultType="int">
+	SELECT 
+		count(*)
+	FROM 
+		spring5_board
+	<!-- 검색 조건이 있는 경우 -->
+	<if test="type != null and searchWord != null">
+		<where>
+		<if test="type == 'title'">
+			title like '%' || #{searchWord} || '%'	
+		</if>
+		<if test="type == 'contents'">
+			contents like '%' || #{searchWord} || '%'	
+		</if>
+		<if test="type == 'memberid'">
+			memberid like #{searchWord}	
+		</if>
+		<if test="type == 'all'">
+			title like '%' || #{searchWord} || '%'
+			OR contents like '%' || #{searchWord} || '%'
+			OR memberid like #{searchWord}	
+		</if>
+		</where>
+	</if>		
+	</select>	
+	
+	<select id="selectAll" parameterType="map" resultType="Board">
+	SELECT 
+		boardnum
+		, memberid
+		, title
+		, contents
+		, hits
+		, originalfile
+		, savedfile
+		, TO_CHAR(inputdate, 'YYYY-MM-DD') as inputdate
+	FROM 
+		spring5_board
+	<!-- 검색 조건이 있는 경우 -->
+	<if test="type != null and searchWord != null">
+		<where>
+		<if test="type == 'title'">
+			title like '%' || #{searchWord} || '%'	
+		</if>
+		<if test="type == 'contents'">
+			contents like '%' || #{searchWord} || '%'	
+		</if>
+		<if test="type == 'memberid'">
+			memberid like #{searchWord}	
+		</if>
+		<if test="type == 'all'">
+			title like '%' || #{searchWord} || '%'
+			OR contents like '%' || #{searchWord} || '%'
+			OR memberid like #{searchWord}	
+		</if>
+		</where>
+	</if>		
+	ORDER BY 
+		boardnum DESC
+	</select>
+	<select id="selectOne" resultType="Board">
+	SELECT
+		boardnum
+		, memberid
+		, title
+		, contents
+		, inputdate
+		, hits
+		, originalfile
+		, savedfile
+	FROM spring5_board
+	WHERE boardnum=#{boardnum}
+	</select>
+	
+<update id="updateHits" parameterType="int">
+	UPDATE
+		spring5_board
+	SET
+		hits = hits+1
+	WHERE
+		boardnum=#{boardnum}
+</update>
+
+<!-- 글 삭제 -->
+<delete id="delete" parameterType="Board">
+	DELETE FROM 
+		spring5_board
+	WHERE
+		boardnum = #{boardnum}
+		AND memberid = #{memberid}
+</delete>
+
+<!-- 글 수정 -->
+<update id="updateBaord" parameterType="Board">
+	UPDATE
+		spring5_board
+		SET
+			boardnum = #{boardnum}
+			, memberid = #{memberid}
+			, title = #{title}
+			, contents = #{contents}
+
+		WHERE 
+			boardnum = #{boardnum}
+</update>
+
+	<!-- 댓글 등록 -->
+		<insert id="replyWrite" parameterType="Reply">
+		INSERT INTO
+			spring5_reply
+			(
+				replynum
+				, boardnum
+				, memberid
+				, replytext			)
+			values
+			(
+				spring5_reply_seq.nextval
+				, #{boardnum}
+				, #{memberid}
+				, #{replytext}				
+			)
+	</insert>
+<!-- 댓글 전체 조회하기 -->	
+	<select id="replyAll" parameterType="integer" resultType="Reply">
+	SELECT 
+		boardnum
+		, memberid
+		, replynum
+		, replytext
+		, TO_CHAR(inputdate, 'YYYY-MM-DD') as inputdate
+	FROM 
+		spring5_reply
+	WHERE
+		boardnum = #{boardnum}
+	ORDER BY
+		replynum	
+	</select>
+	
+<!-- 댓글 삭제 -->
+<delete id="replyDelete" parameterType="integer">
+	DELETE FROM 
+		spring5_reply
+	WHERE
+		replynum = #{replynum}
+</delete>
+<!-- 댓글 1개 조회하기 -->
+<select id="selectReply" parameterType="integer" resultType="Reply">
+	SELECT * FROM spring5_reply
+	WHERE
+		replynum = #{replynum}
+</select>
+		
+</mapper>  

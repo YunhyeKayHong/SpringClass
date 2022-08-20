@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>여기는 js3 js3</title>
+<style>
+a, a:link, a:visited {
+	color : #1d3557;
+	text-decoration : none;
+}
+
+a:hover, a:active {
+	color: #e63946;
+	font-weight: bold;
+	text-decoration : none;
+}
+</style>
+<script>
+function outputDate(){
+	let date = new Date();
+	let time = date.getFullYear() + '년' + date.getMonth() + '월' + date.getDate() + '일'
+				+ date.getHours() + '시' + date.getMinutes() + '분' + date.getSeconds() + '초';
+	document.getElementById('output').innerHTML = time;
+}
+function timeout(){ //시간 재다가 3초후에 outputDate함수 가동!
+	setTimeout(outputDate, 3000); //3초 = 3000
+}
+
+let inter = null; //전역변수로 선언해야 다른 함수에서도 사용 가능
+
+function start(){
+	inter = setInterval(outputDate, 1000);	
+}
+
+function stop(){
+	clearInterval(inter);	
+}
+
+let win = null;
+let winInter = null;
+
+function winStart(){
+	//창이 없으면 열고 일정시간 간격으로 움직임
+	winInter = setInterval(winOpen(), 500);	
+}
+function winOpen(){
+	if(win != null && !win.closed){
+	win = window.open('','win','width=300, height=200, left=400,top=200');
+	    }			
+		win.moveBy(100, 0);
+		
+function winStop(){
+	//일정시간 간격으로 실행하던 작업 취소하고 창 닫음
+	clearInterval(winInter);	
+	win.close();
+}
+
+
+</script>
+</head>
+<body>
+<h2> [ JavaScript 기타 함수 ]</h2>
+
+<p><a href="javascript:outputDate()">날짜 객체</a></p>
+<p><span id="output"></span></p>
+
+<p><a href="javascript:timeout()">setTimeout() 실행</a></p>
+<p><a href="javascript:start()">setInterval() 실행</a></p>
+<p><a href="javascript:stop()">setInterval() 중지</a></p>
+
+<p><a href="javascript:winStart()">창 슬금슬금 이동 시작</a></p>
+<p><a href="javascript:winStop()">창 슬금슬금 이동 중지</a></p>
+</body>
+</html>

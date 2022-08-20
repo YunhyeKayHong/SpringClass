@@ -1,0 +1,9 @@
+--spring3 프로젝트의 테이블 생성
+DROP TABLE PERSON;
+
+CREATE TABLE PERSON(
+    NAME VARCHAR2(20) PRIMARY KEY,
+    AGE NUMBER(3)
+);
+
+COMMIT;

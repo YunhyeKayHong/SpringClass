@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- net.softsociety.spring3.dao패키지의 PersonDAO인터페이스와 매핑됨 -->
+<mapper namespace="net.softsociety.spring3.dao.PersonDAO">
+	<insert id="insertPerson" parameterType="Person">
+	insert into person values(#{name}, #{age})
+	</insert>
+	<delete id="deletePerson" parameterType="String">
+      DELETE FROM person
+      WHERE name Like '%'||#{name}||'%'
+   </delete>	   	
+	<select id="selectPerson" resultType="Person">
+	select * from person
+	</select>
+	<select id="selectOne" parameterType="String" resultType="Person">
+	select * from person where name=#{name}
+	</select>
+	<update id="updatePerson" parameterType="Person">
+	UPDATE person
+	SET age=#{age}
+	WHERE name=#{name}
+	</update>	
+</mapper>

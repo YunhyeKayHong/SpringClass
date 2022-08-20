@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http//thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>상세보기</title>
+<style>
+div{
+width : 300px;
+border-radius:2px;
+  box-shadow:2px 2px 2px 2px #e5e5e5;
+}
+table th,td{
+border : 1px dotted #bcb8b1;
+width : 300px;
+text-align : center;
+}
+th{
+background-color : #ADD8E6;
+}
+</style>
+<script>
+function addToCart(n){
+	let p_num = document.getElementById('p_num'); 
+	
+	if(confirm('장바구니에 담으시겠습니까?')){
+	alert('상품이 장바구니에 담겼습니다.');
+	return true;
+	}
+	return false;
+// 	{
+// 		let form = document.getElementById('addForm'); 
+// 		p_num.value = n;
+// 	}
+		
+	
+}
+</script>
+</head>
+<body>
+	<h1>제품 상세보기</h1>
+	<div>
+	<form  th:object="${detail}" th:action="@{/addToCart}" method="post" id="addForm" onsubmit="return addToCart();">
+	<input type="hidden" th:field="*{p_num}">
+	<input type="hidden" th:field="*{p_name}">
+	<input type="hidden" th:field="*{p_amount}">
+	<input type="hidden" th:field="*{p_price}">
+		<table>
+			<tr>
+				<th>제품번호</th>
+				<td><span th:text="*{p_num}"></span></td>
+			</tr>
+			<tr>
+				<th>제품명</th>
+				<td><span th:text="*{p_name}"></span></td>
+			</tr>
+			<tr>
+				<th>수량</th>
+				<td><span th:text="*{p_amount}"></span></td>
+			</tr>
+			<tr>
+				<th>가격</th>
+				<td><span th:text="*{p_price}"></span></td>
+			</tr>
+			<tr>
+				<th>비고</th>
+				<td><input type="submit" value="담기"></td>
+			</tr>
+			<td colspan="2">
+			<input type="button" value="홈으로" th:onclick="|location.href='@{/}'|">
+			</td>
+			<tr>
+			</tr>
+		</table>
+		</form>
+	</div>
+</body>
+</html>

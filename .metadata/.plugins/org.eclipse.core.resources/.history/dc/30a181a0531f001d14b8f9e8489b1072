@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>comment</title>
+<script th:src="@{/js/jquery-3.6.0.js}"></script>
+<script>
+$(document).ready(function(){
+	//ID가 "bt"인 버튼을 클릭하면 insert함수 실행
+	$('#bt').on("click", insert);
+	//댓글 목록 읽어오기
+	init(); 
+	
+});
+
+function insert(){
+	//id가 "name", text"인 요소에서 입력한 값을 읽어서
+	let n = $('#name').val();
+	let t = $('#text').val();
+	
+	//서버로 보냄
+	$.ajax({
+		url: 'insert',
+		type: 'post',
+		data:{name: n, text: t}, //table의 컬럼 이름과 맞추기 주의!
+		success: function(){
+			alert('저장되었습니다.');
+		},
+		error: function(){
+			alert('insert : 잘못된 접근입니다.');
+		}
+		
+	});
+	
+}
+
+function init(){
+	//서버로 Ajax 요청을 보내서 댓글 목록을 받아서 반복문으로 화면에 출력
+	$.ajax({
+		url: 'getComment',
+		type: 'get',
+		dataType:'json', //table의 컬럼 이름과 맞추기 주의!
+		success: function(list){
+			let s;
+			s += '<table border=1px>'
+			s += '<tr>'
+			s += '<td>'+ '번호' +'</td>'
+			s += '<td>'+ '이름' +'</td>'
+			s += '<td>'+ '내용' +'</td>'
+			s += '</tr>'
+			$.each(list, function (idx, ob){
+				s += '<tr>'
+				s += '<td>'+ ob.num + '</td>'
+				s += '<td>' + ob.name + '</td>'
+				s += '<td>' + ob.text + '</td>'
+				s += '<td><input type="button" value="삭제" class="btnDel" num="">' + ob.num + ">'</td>'
+				'</tr>'
+			});
+			s += '</table>';
+			
+			$('#output').html(s);
+			
+			},
+		error: function(){
+			alert('init : 잘못된 접근입니다.');
+		}
+		
+	});
+}
+</script>
+</head>
+<body>
+<h2>[ Comment ]</h2>
+<div>
+<form>
+	이름 <input type="text" id="name">
+	내용 <input type="text" id="text">
+	<input type="button" id="bt" value="저장">
+	<hr>
+	<!-- 댓글 목록 출력 영역 -->
+	<div id="output"></div>
+</form>
+</div>
+</body>
+</html>
+

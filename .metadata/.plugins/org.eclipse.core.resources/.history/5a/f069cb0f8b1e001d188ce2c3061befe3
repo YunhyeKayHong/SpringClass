@@ -1,0 +1,9 @@
+package net.softsociety.web.dao;
+
+
+public class webDAO {
+
+	public int updateHits(int boardnum);
+
+	public int now(int boardnum) ;
+}

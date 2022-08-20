@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http//thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div {
+	width: 700px;
+	background-color: #fefae0;
+}
+
+h2 {
+	font-style: italic;
+	text-align: center;
+}
+
+table.list {
+	width: 700px;
+}
+
+a {
+	background-color: #00afb9;
+	color: white;
+	padding: 0.40rem 2.25rem;
+	font-size: 0.85rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 10rem;
+	margin-left: 500px;
+}
+a:hover{
+    color: white;
+    font-weight: bold;
+    background-color: #0081a7;
+}
+
+</style>
+<script>
+function deleteGuestbook(n){
+	let inputPassword = document.getElementById('pw'+n); // 타입 input계체
+	let num = document.getElementById('num'); //히든
+	let password = document.getElementById('password'); //히든
+	let form = document.getElementById('deleteForm');	//폼
+	
+	if(confirm('삭제하시겠습니까?')){
+		num.value = n;
+		password.value = inputPassword.value;
+		form.submit();
+	}
+}
+</script>
+</head>
+<body>
+	<div>
+		<header>
+			<h2>[ G u e s t B o o k ]</h2>
+			<a href="write" id="button"> 글쓰기 </a>
+		</header>
+
+		<!-- 삭제시 전송할 폼 -->
+		<form th:action="@{/delete}" method="post" id="deleteForm">
+			<input type="hidden" name="num" value="0" id="num"> 
+			<input type="hidden" name="password" value="" id="password">
+		</form>
+
+		<!-- guestbook테이블의 모든 데이터 출력 (작성일의 역순으로) -->
+		<table th:each="guestbook:${list}" class="list">
+			<tr>
+				<th>작성자 :</th>
+				<td th:text="${guestbook.name}">작성자 이름</td>
+			</tr>
+			<tr>
+				<th>작성일 :</th>
+				<td th:text="${guestbook.inputdate}">작성일</td>
+			</tr>
+			<tr>
+				<td colspan="2"><pre th:text="${guestbook.message}"></pre></td>
+			</tr>
+			<tr>
+				<td colspan="2"><label>비밀번호</label> 
+				<input type="password"	th:id="|pw${guestbook.num}|"> 
+					<input type="button"	value="삭제" th:num="${guestbook.num}"
+					th:onclick="deleteGuestbook(this.getAttribute('num'))"></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

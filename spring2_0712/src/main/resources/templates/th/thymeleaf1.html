@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>thymeleaf1</title>
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<script th:src="@{/js/func.js}"></script>
+</head>
+<body>
+	<h2>Thymeleaf 문법</h2>
+	<h3>값 출력</h3>
+	<p>[[${str}]]</p>
+	<p>[[${num}]]</p>
+	<p>[[${member}]]</p>
+	<p>[[${member.id}]]</p>
+	<p>[[${member.name}]]</p>
+	<p>[[${tag}]]</p>
+	<p>[[${url}]]</p>
+	
+	<p th:text="${str}">기본문자열</p>
+	<p th:text="${tag}"></p>
+	<p th:utext="${str}"></p>
+	<p th:utext="${tag}"></p>
+	
+	<h3>주석</h3>
+	<!-- <p>[[${str}]]</p> -->
+	<!-- <p th:text="${str}"></p> -->
+	<!--/* <p>[[${str}]]</p> */-->
+	<!--/* <p th:text="${str}"></p> */-->
+	
+	<h3>연산자</h3>
+	<!-- 산술연산자 : + - * / % -->
+	<p>[[${num - 1}]]</p>
+	<!-- 비교연산자 > < >= <= == != gt lt ge le eq ne-->
+	<p>[[${num > 1}]]</p>
+	<p>[[${num ne 100}]]</p>
+	<!-- 논리연산자 and or not -->
+	<p>[[${num ge 1 and num le 10}]]</p>
+	<p>[[${num % 3 == 0 or num % 5 == 0}]]</p>
+
+	<h3>객체 출력</h3>
+	<p th:text="${member}"></p>
+	<p th:text="${member.id}"></p>
+	<p th:text="${member.name}"></p>
+	<ul th:object="${member}">
+		<li th:text="*{id}">아이디</li>
+		<li th:text="*{name}">이름</li>
+		<li th:text="*{password}">비밀번호</li>
+	</ul>
+	
+	<h3>경로 생성과 하이퍼링크</h3>
+	<p><a href="https://www.naver.com">네이버로 이동</a></p>
+	<p><a href="${url}" th:href="${url}">구글로 이동</a></p>
+	<p>절대경로 생성 : [[@{/param/param1}]]</p>
+	<p><a href="/param/param1" th:href="@{/param/param1}">페이지 이동</a></p>
+	<!-- 
+		1. 이미지 파일을 /static/img 폴더에 저장하고 불러온다
+		2. css 파일을 /static/css 폴더에 저장하고 불러온다
+		3. js파일을 /static/js폴더에 저장하고 불러와서 함수 호출
+	 -->
+	 <p><img src="" th:src="@{/img/image1.png}"></p>
+	
+	<h3>포맷 지정하기</h3>
+	<p th:text="${inum}"></p>
+	<p th:text="${dnum}"></p>
+	<p th:text="${date}"></p>
+	
+	<p th:text="${#numbers.formatInteger(inum, 10)}"></p>
+	<p th:text="${#numbers.formatInteger(inum, 3, 'COMMA')}"></p><!-- WHITESPACE, NONE -->
+	<p th:text="${#numbers.formatDecimal(dnum, 3, 'COMMA', 2, 'POINT')}"></p>
+	<p th:text="${#numbers.formatPercent(dnum, 0, 2)}"></p>
+	<p th:text="${#dates.format(date, 'yyyy/MMM/dd HH:mm')}"></p>
+	
+</body>
+</html>

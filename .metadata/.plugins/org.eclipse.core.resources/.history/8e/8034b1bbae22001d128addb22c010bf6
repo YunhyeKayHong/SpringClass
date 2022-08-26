@@ -1,0 +1,34 @@
+package net.softsociety.exam.dao;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import net.softsociety.exam.domain.Board;
+import net.softsociety.exam.domain.Reply;
+
+/**
+ * 게시판 관련 매퍼
+ */
+@Mapper
+public interface BoardDAO {
+	//판매 글 등록
+	public int insertBoard(Board board);
+
+	//전체 글 불러오기
+	public ArrayList<Board> selectBoard();
+	
+	//글 한 개 불러오기
+	public Board selectOne(int boardnum);
+	
+	//글 한 개 삭제하기
+	public int delete(Board board);
+	
+	//상품 한 개 구매하기
+	public int BuyBoard(Board board);
+	
+	//댓글 전체 불러오기
+	public ArrayList<Reply> replyAll(int boardnum);
+
+}

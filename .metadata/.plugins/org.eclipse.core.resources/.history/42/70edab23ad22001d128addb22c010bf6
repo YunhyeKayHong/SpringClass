@@ -1,0 +1,26 @@
+package net.softsociety.exam.service;
+
+import java.util.ArrayList;
+
+import net.softsociety.exam.domain.Board;
+import net.softsociety.exam.domain.Reply;
+
+public interface BoardService {
+
+	//판매 글 등록
+	public int write(Board board);
+
+	//글 목록 불러오기
+	public ArrayList<Board> selectBoard();
+
+	//글 한 개 불러오기
+	public Board selectOne(int boardnum);
+	
+	//글 한 개 삭제
+	public int delete(Board board);
+	
+	//상품 한 개 구매하기
+	public int BuyBoard(Board board);
+
+
+}

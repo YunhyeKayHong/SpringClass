@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http//thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>검색하기</title>
+</head>
+<body>
+	<h1>[판매 정보 게시판]</h1>
+	<!-- 로그인한 사람만 글쓰기 폼으로 -->
+	<p sec:authorize="isAuthenticated()">
+	<a th:href="@{/board/write}">판매글 등록</a>
+	</p>
+
+	<table>
+		<tr>
+			<th>번호</th>
+			<th>제목</th>
+			<th>작성자</th>
+		</tr>
+		<tr th:each="bl:${list}" class="list">
+			<td th:text="${bl.boardnum}">글번호</td>
+			<td><a th:text="${bl.title}"
+				th:href="@{/board/read(boardnum=${bl.boardnum})}"></a></td>
+			<td th:text="${bl.memberid}">작성자</td>
+		</tr>
+	</table>
+</body>
+</html>

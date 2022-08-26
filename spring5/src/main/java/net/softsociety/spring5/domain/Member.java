@@ -28,8 +28,8 @@ public class Member implements UserDetails {
    String email;      //이메일주소
    String phone;      //전화번호
    String address;    //집주소
-   boolean enabled;       //계정 상태, 1(기본값)은 사용가능, 0은 사용불가능
-   String rolename;   //사용자 종류, 'ROLE_USER'(기본값), 'ROLE_ADMIN'
+   boolean enabled;   //계정 상태, 1(기본값)은 사용가능, 0은 사용불가능 : 인증정보를 담기 위해 추가함
+   String rolename;   //사용자 종류, 'ROLE_USER'(기본값), 'ROLE_ADMIN' : 인증정보를 담기 위해 추가함
    
    @Override
    public Collection<? extends GrantedAuthority> getAuthorities() {

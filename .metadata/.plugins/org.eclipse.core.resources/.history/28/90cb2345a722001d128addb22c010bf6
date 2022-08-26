@@ -1,0 +1,33 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.softsociety.exam.dao.BoardDAO">
+
+<!--판매글 저장 -->
+<insert id="insertBoard" parameterType="Board">
+	insert into market_board
+	(boardnum, memberid, title, contents, category) 
+	values
+	(market_board_seq.nextval, #{memberid}, #{title}, #{contents}, #{category})
+</insert>
+<select id="selectBoard" resultType="Board">
+	select 
+	boardnum, memberid, title 
+	from market_board
+	where soldout = 'N'
+	order by boardnum desc
+</select>
+	<select id="selectOne" resultType="Board">
+	SELECT
+		boardnum
+		, memberid
+		, title
+		, contents
+		, inputdate
+	FROM market_board
+	WHERE boardnum=#{boardnum}
+	</select>
+
+
+</mapper>

@@ -1,0 +1,90 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.softsociety.exam.dao.BoardDAO">
+
+<!--판매글 저장 -->
+<insert id="insertBoard" parameterType="Board">
+	insert into market_board
+	(boardnum, memberid, title, contents, category) 
+	values
+	(market_board_seq.nextval, #{memberid}, #{title}, #{contents}, #{category})
+</insert>
+
+<!-- 글 전체 조회 -->
+<select id="selectBoard" resultType="Board">
+	select 
+	boardnum, memberid, title 
+	from market_board
+	where soldout = 'N'
+	order by boardnum desc
+</select>
+
+<!-- 글 조회 -->
+	<select id="selectOne" resultType="Board">
+	SELECT
+		boardnum
+		, memberid
+		, title
+		, contents
+		, inputdate
+	FROM market_board
+	WHERE boardnum = #{boardnum}
+	</select>
+	
+<!-- 글 삭제 -->
+<delete id="delete" parameterType="Board">
+	DELETE FROM 
+		market_board
+	WHERE
+		boardnum = #{boardnum}
+		AND memberid = #{memberid}
+</delete>
+
+<!-- 상품 1개 구매 -->
+<update id="BuyBoard" parameterType="Board">
+	UPDATE 
+		market_board
+	SET
+		soldout = 'Y'
+		, buyerid = #{buyerid}
+	WHERE
+		boardnum = #{boardnum}
+
+</update>
+	
+<!-- 댓글 전체 조회하기 -->
+	<select id="replyAll" parameterType="integer" resultType="Reply">
+		SELECT
+			boardnum
+			, memberid
+			, replynum
+			, replytext
+			, inputdate
+		FROM
+			market_reply
+		WHERE
+			boardnum = #{boardnum}
+		ORDER BY
+			replynum
+	</select>
+	
+<!-- 댓글 등록 -->
+		<insert id="replyWrite" parameterType="Reply">
+		INSERT INTO
+			market_reply
+			(
+				replynum
+				, boardnum
+				, memberid
+				, replytext			)
+			values
+			(
+				market_reply_seq.nextval
+				, #{boardnum}
+				, #{memberid}
+				, #{replytext}				
+			)
+	</insert>	
+</mapper>

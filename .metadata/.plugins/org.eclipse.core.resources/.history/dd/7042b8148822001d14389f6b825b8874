@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>[판매글 등록]</h1>
+		<form action="write" method="post" onsubmit="return validation()">
+			<table>
+				<tr>
+					<th><label for="name">이름</label></th>
+					<td><input id="name" name="name" type="text"></td>
+				</tr>
+				<tr>
+					<th><label for="password">비밀번호</th>
+					<td></label><input id="password" name="password" type="password"></td>
+				</tr>
+				<tr>
+					<th><label for="message">내용</label></th>
+					<td><textarea id="message" name="message" type="text" rows="5" cols="30"></textarea></td>
+				</tr>
+				<tr>
+					<td><input id="button" type="submit" value="전송">&nbsp;</td>
+				</tr>
+				
+			</table>
+		</form>
+
+</body>
+</html>

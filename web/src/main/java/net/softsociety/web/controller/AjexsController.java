@@ -134,26 +134,17 @@ public class AjexsController {
 		return cnt;
 	}
 	
+		
 	//경로설정 : 아이디 체크 화면
 	@GetMapping("idCheck")
 	public String IdCheck() {
 		return "/ajView/idCheck";
 	}
 	
-	//가입
-	@ResponseBody
-	@PostMapping("join")
-	public String join(Member member) {
-		log.debug("가입정보 : {}", member);
-		dao.join(member);
-		
-		return "redirect:/";	
-	}
-	
 	
 	//ID 중복 체크
 	@ResponseBody
-	@PostMapping("IdCheck")
+	@PostMapping("idCheck")
 	public int IdCheck(String memberid) {
 		int res = 0;
 		res = dao.idCheck(memberid);

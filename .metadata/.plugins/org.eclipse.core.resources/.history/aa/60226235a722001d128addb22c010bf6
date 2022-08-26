@@ -1,0 +1,46 @@
+package net.softsociety.exam.service;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import net.softsociety.exam.dao.BoardDAO;
+import net.softsociety.exam.dao.MemberDAO;
+import net.softsociety.exam.domain.Board;
+import net.softsociety.exam.domain.Reply;
+
+
+
+@Transactional
+@Service
+public class BoardSeviceImpl implements BoardService {
+
+	@Autowired
+	BoardDAO boardDAO;
+	
+	//판매글 등록
+	@Override
+	public int write(Board board) {
+		int result = boardDAO.insertBoard(board);
+		return result;
+	}
+
+	//전체 글 불러오기
+	@Override
+	public ArrayList<Board> selectBoard() {
+		ArrayList<Board> list = boardDAO.selectBoard();
+		return list;
+	}
+
+	//글 한 개 불러오기
+	@Override
+	public Board selectOne(int boardnum) {
+		Board board = boardDAO.selectOne(boardnum);
+		return null;
+	}
+
+
+}

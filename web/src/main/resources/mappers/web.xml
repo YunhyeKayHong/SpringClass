@@ -20,7 +20,7 @@
 		where 
 			boardnum = #{boardnum}
 	</select>
-	<select id = "idCheck" parameterType="String">
+	<select id = "idCheck" parameterType="String" resultType="int">
 		select 
 			count(*)
 		from
@@ -28,8 +28,4 @@
 		where
 			memberid = #{memberid} 
 	</select>
-	<insert id="join" parameterType="Member">
-	insert into 
-		web_member values (#{memberid}, #{name})
-	</insert>
 </mapper>

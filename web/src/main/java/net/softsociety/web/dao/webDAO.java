@@ -16,8 +16,6 @@ public interface webDAO {
 	//id 중복체크
 	public int idCheck(String memberid);
 	
-	//가입하기
-	public String join(Member member);
 }
 
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function validation(){
+     let name = document.getElementById("name"); 
+     let password = document.getElementById("password");
+     let message = document.getElementById("message");
+     
+     if(name.value.length == 0){
+    	 alert("이름은 필수 입력사항입니다.");
+    	 return false;
+     }
+     if(password.value.length == 0){
+    	 alert("비밀번호는 필수 입력사항입니다.");
+    	 return false;
+     }
+     if(message.value.length == 0){
+    	 alert("내용은 필수 입력사항입니다.");
+    	 return false;
+     }
+     return true;
+}
+</script>
+</head>
+<body>
+<h1>[판매글 등록]</h1>
+		<form action="write" method="post" onsubmit="return validation()">
+			<table>
+				<tr>
+					<th><label for="title">제목</label></th>
+					<td><input id="title" name="title" type="text"></td>
+				</tr>
+				<tr>
+					<th><label for="내용">내요</th>
+					<td></label><input id="password" name="password" type="password"></td>
+				</tr>
+				<tr>
+					<th><label for="contents">내용</label></th>
+					<td><textarea id="contents" name="contents" type="text" rows="5" cols="30"></textarea></td>
+				</tr>
+				<tr>
+					<td><input id="button" type="submit" value="전송">&nbsp;</td>
+				</tr>
+				
+			</table>
+		</form>
+
+</body>
+</html>

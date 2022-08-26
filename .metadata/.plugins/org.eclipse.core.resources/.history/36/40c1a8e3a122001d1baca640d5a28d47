@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function validation(){
+     let title = document.getElementById("title"); 
+     let contents = document.getElementById("contents");
+     
+     if(title.value.length <= 5){
+    	 alert("제목을 입력하세요.");
+    	 return false;
+     }
+     if(contents.value.length <= 5){
+    	 alert("내용을 입력하세요.");
+    	 return false;
+     }
+     return true;
+}
+</script>
+</head>
+<body>
+<h1>[판매글 등록]</h1>
+		<form action="write" method="post" onsubmit="return validation()">
+			<table>
+			<tr>
+                    <th><label for="category">카테고리</label></th>
+                    <td>
+                        <select id="category" name="category">
+                                <option value="컴퓨터" id="computer">컴퓨터</option>
+                                <option value="카메라" id ="camera" selected="selected">카메라</option>
+                                <option value="자동차" id="car" >자동차</option>
+                        </select>			
+				<tr>
+					<th><label for="title">제목</label></th>
+					<td><input id="title" name="title" type="text"></td>
+				</tr>
+				<tr>
+					<th><label for="contents">내용</label></th>
+					<td><textarea id="contents" name="contents" type="text" rows="5" cols="30"></textarea></td>
+				</tr>
+				<tr>
+					<td><input id="button" type="submit" value="저장">&nbsp;</td>
+				</tr>
+				
+			</table>
+		</form>
+
+</body>
+</html>

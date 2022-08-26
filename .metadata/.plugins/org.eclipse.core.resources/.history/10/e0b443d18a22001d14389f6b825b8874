@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>판매 정보 게시판</h1>
+<a href="write" id="button"> 판매글 등록 </a>
+
+		<!-- 게시판테이블의 모든 데이터 출력 (작성일의 역순으로) -->
+<!-- 		<table th:each="bl:${list}" class="list">
+			<tr>
+				<th>글번호</th>
+				<th>제목</th>				
+				<th>작성자</th>
+			</tr>
+			<tr>
+				<td th:text="${bl.boardnum}">글번호</td>
+				<td th:text="${bl.title}">작성자 이름</td>
+			</tr>
+			<tr>
+				<td colspan="2"><pre th:text="${guestbook.message}"></pre></td>
+			</tr>
+			<tr>
+				<td colspan="2"><label>비밀번호</label> 
+				<input type="password"	th:id="|pw${guestbook.num}|"> 
+					<input type="button"	value="삭제" th:num="${guestbook.num}"
+					th:onclick="deleteGuestbook(this.getAttribute('num'))"></td>
+			</tr>
+		</table> -->
+</body>
+</html>

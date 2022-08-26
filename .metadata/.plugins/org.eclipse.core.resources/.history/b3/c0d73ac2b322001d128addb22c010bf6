@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http//thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>검색하기</title>
+</head>
+<body>
+	<h1>[판매 상품 검색]</h1>
+	<select id="category" name="category">
+		<option value="allThings" id="allThings" selected="selected">전체보기</option>
+		<option value="computer" id="computer">컴퓨터</option>
+		<option value="camera" id="camera">카메라</option>
+		<option value="car" id="car">자동차</option>
+		<input type="text" name="memberid" id="memberid"><br>
+	</select>
+	
+	<table>
+		<tr>
+			<th>번호</th>
+			<th>카테고리</th>
+			<th>제목</th>
+		</tr>
+		<tr th:each="bl:${list}" class="list">
+			<td th:text="${bl.boardnum}">글번호</td>
+			<td th:text="${bl.category}">카테고리</td>
+			<td><a th:text="${bl.title}"
+				th:href="@{/board/read(boardnum=${bl.boardnum})}"></a></td>
+		</tr>
+	</table>
+</body>
+</html>

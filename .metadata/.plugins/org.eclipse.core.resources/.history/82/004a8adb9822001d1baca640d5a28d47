@@ -1,0 +1,32 @@
+package net.softsociety.exam.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import net.softsociety.exam.dao.MemberDAO;
+import net.softsociety.exam.domain.Member;
+
+@Service
+public class MemberSeviceImpl implements MemberService {
+
+	@Autowired
+	MemberDAO memberDAO;
+	
+
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
+	@Override
+	public int join(Member member) {
+		String encodePassword = passwordEncoder.encode(member.getMemberpw()); //encode 암호화하는 메소드
+		member.setMemberpw(encodePassword);
+		
+		System.out.println("member");
+		int result = memberDAO.insertMember(member);
+		return 0;
+	}
+
+   
+
+}

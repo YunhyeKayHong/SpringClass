@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http//thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+function validation(){
+	let id = document.getElementById('memberid'); 
+	let pw = document.getElementById('memberpw');
+	let name = document.getElementById('membername'); 
+	let phone = document.getElementById('phone'); 
+
+	
+	if(id.value.length < 3 || id.value.length > 10){
+		alert("ID는 3~10자로 입력하세요.");
+		return false;				
+	}
+
+	
+	if(pw.value.length < 3 || pw.value.length > 10){
+		alert("비밀번호는 3~10자로 입력하세요.");
+		return false;				
+	}
+	
+	if(name.value.length == 0){
+		alert("이름을 입력하세요.");
+		return false;
+	}
+	
+	if(phone.value.length == 0){
+		alert("전화번호를 입력하세요.");
+		return false;
+	}
+	
+	
+	}
+function idFormOpen(){
+	window.open('idcheck','newWin','left=400, top=200, width=400, height=300, menubar=no');
+	
+}
+</script>
+</head>
+<body>
+<h1>[회원가입]</h1>
+    <div class="content">
+        <h1>Let's Join Us!</h1> 
+        	<form id="join" action="join"  method="post" onsubmit="return validation();">           
+            <table>
+                <tr>
+                    <th><label for="memberid">ID</label></th>
+                    <td>
+                        <input id="memberid" type="text" name="memberid" maxlength="10">
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="memberpw">비밀번호</label></th>
+                    <td>
+                        <input id="memberpw" type="password" name="memberpw">
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="membername">이름</label></th>
+                    <td>
+                        <input id="membername" type="text" name="membername" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>전화번호</th>
+                    <td>
+                        <input id="phone" type="tel" name="phone">
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <th colspan="2">	
+                        <input type="submit" value="가입" >&nbsp;
+                        <input type="reset" value="다시 쓰기">&nbsp;
+                    </th>
+                </tr>
+            </table>
+		</form> 
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+package net.softsociety.spring5.domain;
+
+import java.util.Collection;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * 회원 정보
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Member implements UserDetails {
+	/**
+	 * Add generated serail number
+	 *확실하게 보장될만한 버젼을 설정해주세요라는 경고 
+	 */
+	private static final long serialVersionUID = 3222388532456457383L;
+	
+   String memberid;   //사용자 식별ID
+   String memberpw;  //비밀번호
+   String membername; //사용자 이름
+   String email;      //이메일주소
+   String phone;      //전화번호
+   String address;    //집주소
+   boolean enabled;       //계정 상태, 1(기본값)은 사용가능, 0은 사용불가능 : 인증정보를 담기 위해 추가함
+   String rolename;   //사용자 종류, 'ROLE_USER'(기본값), 'ROLE_ADMIN' : 인증정보를 담기 위해 추가함
+   
+   @Override
+   public Collection<? extends GrantedAuthority> getAuthorities() {
+      // TODO Auto-generated method stub
+      return null;
+   }
+   @Override
+   public String getPassword() {
+      return this.memberpw;
+   }
+   @Override
+   public String getUsername() {
+      return this.memberid;
+   }
+   @Override
+   public boolean isAccountNonExpired() {
+      return true;
+   }
+   @Override
+   public boolean isAccountNonLocked() {
+      // TODO Auto-generated method stub
+      return true;
+   }
+   @Override
+   public boolean isCredentialsNonExpired() {
+      // TODO Auto-generated method stub
+      return true;
+   }
+   @Override
+   public boolean isEnabled() { //if 1이면 true, 0이면 false 로직으로 만들어주기
+      return this.enabled;
+   }
+}

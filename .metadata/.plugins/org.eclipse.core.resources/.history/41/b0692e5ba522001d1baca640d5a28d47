@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>read</title>
+</head>
+<body>
+	<div class="container">
+		<h1>[판매 정보]</h1>
+		<table>
+			<tr>
+				<th>작성자</th>
+				<td th:text="${board.memberid}"></td>
+			</tr>
+			<tr>
+				<th>작성일</th>
+				<td th:text="${board.inputdate}"></td>
+			</tr>
+			<tr>
+				<th>제목</th>
+				<td th:text="${board.title}"></td>
+			<tr>
+				<th>내용</th>
+				<td th:text="${board.contents}"></td>
+			</tr>
+		</table>
+
+
+</body>
+</html>
